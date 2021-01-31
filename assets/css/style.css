@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Aclonica';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Aclonica Regular'), local('Aclonica-Regular'), url(../../vendor/font-awesome-4.7/fonts/Aclonica.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.aclonica{
+
+  font-family: 'Aclonica';
+
+}
+
+.bg{
+
+  background: -webkit-linear-gradient(-35deg, #007bff8c, #000509);
+  background: -o-linear-gradient(-35deg, #007bff8c, #000509);
+  background: -moz-linear-gradient(-35deg, #007bff8c, #000509);
+  background: linear-gradient(-35deg, #007bff8c, #000509);
+
+}
+
+.table {
+  height: auto;
+  max-height: 325px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 0px 10px 10px 10px #6c757db5;
+  border-radius: 10px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgb(238, 158, 0);
+}
