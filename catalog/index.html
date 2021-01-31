@@ -1,0 +1,475 @@
+ <?php
+
+  require_once "inc/functions.php";
+
+  require_once "inc/db.php";
+
+  ?>
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="Yeres, N'1 des sites de ventes en lignes">
+      <meta content="Yumeres, E-commerce, commerce, achat, ventes, Shop, Shopping, Afrique, Cote D'ivoire" name="keywords">
+      <meta content="index, follow" name="robots">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <title>Catégorie | Yumeres - E-commerce</title>
+
+      <link rel="icon" href="../img/core-img/favicon.ico">
+
+      <link rel="stylesheet" href="../stylefiles/bootstrap.min.css">
+      <link rel="stylesheet" href="../stylefiles/owl.carousel.css">
+      <link rel="stylesheet" href="../stylefiles/core-style.css">
+
+  </head>
+
+  <body>
+
+      <div class="search-wrapper section-padding-100">
+          <div class="search-close">
+              <i class="fa fa-close" aria-hidden="true"></i>
+          </div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-12">
+                      <div class="search-content">
+                          <form action="#" method="get">
+                              <input type="search" name="search" id="search" placeholder="Chercher un produit, une marque ou une catégorie...">
+                              <button type="submit"><img src="../img/core-img/search.png" alt=""></button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="main-content-wrapper d-flex sticky-content-effect-section">
+          <div class="mobile-nav">
+              <!-- Navbar Brand -->
+              <div class="yumeres-navbar-brand">
+                  <a href="index.html"><img src="../img/core-img/logo.png" alt=""></a>
+              </div>
+              <!-- Navbar Toggler -->
+              <div class="yumeres-navbar-toggler">
+                  <span></span><span></span><span></span>
+              </div>
+          </div>
+          <header class="header-area sticky-content-effect-box clearfix">
+              <div class="nav-close">
+                  <i class="fa fa-close" aria-hidden="true"></i>
+              </div>
+              <div class="logo">
+                  <a href="index.html"><img src="../img/core-img/logo.png" alt=""></a>
+              </div>
+              <nav class="yumeres-nav">
+                  <ul>
+                      <li class="active"><a href="https://www.yumeres.com">Acceuil</a></li>
+                      <li><a href="https://www.yumeres.com/catalog/index.html">Catégorie</a></li>
+                      <li><a href="mailto:support@yumeres.com">Contact</a></li>
+                  </ul>
+              </nav>
+
+              <div class="mb-70"></div>
+              <div class="cart-fav-search mb-50">
+                  <a href="wishlist.html" class="cart-nav"><img src="../img/core-img/cart.png" alt=""> Panier
+                      <span>(0)</span></a>
+                  <a href="#" class="search-nav"><img src="../img/core-img/search.png" alt=""> Rechercher</a>
+              </div>
+              <div class="social-info d-flex justify-content-between">
+                  <a href="https://www.facebook.com/yumeres"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a href="https://www.telegram.com/yumeres"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                  <a href="https://www.instagram.com/yumeres"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                  <a href="mailto:support@yumeres.com"><i class="fa fa-support" aria-hidden="true"></i></a>
+              </div>
+
+              <div id="dark_swipe">
+                  <i class="fa fa-toggle-on" aria-hidden="true"></i>
+              </div>
+          </header>
+
+         <div class="section shop-x clearfix d-flex">
+          <div class="sticky-content-effect-section d-flex">
+              <div class="d-none d-md-block shop_sidebar_area sticky-content-effect-box">
+
+              <!-- ##### Single Widget ##### -->
+              <div class="widget catagory mb-50">
+                  <!-- Widget Title -->
+                  <h6 class="widget-title mb-30">Catagories</h6>
+
+                  <!--  Catagories  -->
+                  <div class="catagories-menu">
+                      <ul>
+                          <li><a href="active">Télévisions</a></li>
+                          <li><a href="#">Audio &amp; Hifi</a></li>
+                          <li><a href="#">Accessoires TV</a></li>
+                          <li><a href="#">Décodeurs</a></li>
+                          <li><a href="#">Casques &amp; Écouteurs</a></li>
+                          <li><a href="#">Appareil vidéo</a></li>
+                          <li><a href="#">Caméra</a></li>
+                          <li><a href="#">Tablettes</a></li>
+                          <li><a href="#">Smartphones</a></li>
+                          <li><a href="#">Ordinateurs</a></li>
+                          <li><a href="#">Stockage</a></li>
+                          <li><a href="#">Montre connectée</a></li>
+                      </ul>
+                  </div>
+              </div>
+
+          </div>
+              <div class="yumeres_product_area section-padding-100">
+              <div class="container-fluid">
+                  <div class="row">
+                  <div class="col-12">
+                      <nav aria-label="breadcrumb">
+                          <ol class="breadcrumb mt-30">
+                              <li class="breadcrumb-item"><a href="https://www.yumeres.com">Acceuil</a></li>
+                              <li class="breadcrumb-item active">Catégorie</li>
+                          </ol>
+                      </nav>
+                  </div></div>
+
+                  <div class="row">
+                      <div class="col-12">
+                          <div class="product-topbar d-xl-flex align-items-end justify-content-between">
+                              <!-- Total Products -->
+                              <div class="total-products">
+                                  <p>Afficher : 1-8 sur 25</p>
+
+                              </div>
+                              <!-- Sorting -->
+                              <div class="product-sorting d-flex">
+                                  <div class="sort-by-date d-flex align-items-center mr-15">
+                                      <p>Trier par</p>
+                                      <form action="#" method="get">
+                                          <select name="select" id="sortBydate">
+                                              <option value="value">Date</option>
+                                              <option value="value">Nouveautés</option>
+                                              <option value="value">Popularités</option>
+                                          </select>
+                                      </form>
+                                  </div>
+                                  <div class="view-product d-flex align-items-center">
+                                      <p>Afficher</p>
+                                      <form action="#" method="get">
+                                          <select name="select" id="viewProduct">
+                                              <option value="value">12</option>
+                                              <option value="value">24</option>
+                                              <option value="value">48</option>
+                                              <option value="value">96</option>
+                                          </select>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+
+                    <!-- Articles -->
+
+                      <?<?php
+
+                        $articles = $pdo->query("SELECT * FROM articles");
+
+                        while ($article = articles->fetch()) {
+
+                          $id = $article['id'];
+
+                          $img = $article['img'];
+
+                          $nom = $article['nom'];
+
+                          $cat = $article['cat'];
+
+                          $prix = $article['prix'];
+
+                          $descr = $article['descr'];
+
+                          ?>
+
+                            <div class="col-6 col-sm-4 col-md-12 col-xl-4">
+                              <div class="single-product-wrapper">
+                                  <!-- Product Image -->
+                                  <div class="product-img">
+                                      <img src="../img/product-img/product1.jpg" alt="">
+                                      <!-- Hover Thumb -->
+                                      <img class="hover-img" src="../img/product-img/product2.jpg" alt="">
+                                  </div>
+
+                                  <!-- Product Description -->
+                                  <div class="product-description d-flex align-items-center justify-content-between">
+                                      <!-- Product Meta Data -->
+                                      <div class="product-meta-data">
+                                          <div class="line"></div>
+                                          <p class="product-price">65.000 fr</p>
+                                          <a href="product-details.html">
+                                              <h6>Modern Chair</h6>
+                                          </a>
+                                      </div>
+                                      <!-- Ratings & Cart -->
+                                      <div class="ratings-cart text-right">
+                                          <div class="ratings">
+                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                              <i class="fa fa-star" aria-hidden="true"></i>
+                                          </div>
+                                          <div class="cart">
+                                              <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="../img/core-img/cart.png" alt=""></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <?php
+                        }
+
+                      ?>
+
+                      <div class="col-6 col-sm-4 col-md-12 col-xl-4">
+                          <div class="single-product-wrapper">
+                              <!-- Product Image -->
+                              <div class="product-img">
+                                  <img src="../img/product-img/product2.jpg" alt="">
+                                  <!-- Hover Thumb -->
+                                  <img class="hover-img" src="../img/product-img/product3.jpg" alt="">
+                              </div>
+
+                              <!-- Product Description -->
+                              <div class="product-description d-flex align-items-center justify-content-between">
+                                  <!-- Product Meta Data -->
+                                  <div class="product-meta-data">
+                                      <div class="line"></div>
+                                      <p class="product-price">45.000 fr</p>
+                                      <a href="product-details.html">
+                                          <h6>Modern Chair</h6>
+                                      </a>
+                                  </div>
+                                  <!-- Ratings & Cart -->
+                                  <div class="ratings-cart text-right">
+                                      <div class="ratings">
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                      </div>
+                                      <div class="cart">
+                                          <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="../img/core-img/cart.png" alt=""></a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-12 col-xl-4">
+                          <div class="single-product-wrapper">
+                              <!-- Product Image -->
+                              <div class="product-img">
+                                  <img src="../img/product-img/product3.jpg" alt="">
+                                  <!-- Hover Thumb -->
+                                  <img class="hover-img" src="../img/product-img/product4.jpg" alt="">
+                              </div>
+
+                              <!-- Product Description -->
+                              <div class="product-description d-flex align-items-center justify-content-between">
+                                  <!-- Product Meta Data -->
+                                  <div class="product-meta-data">
+                                      <div class="line"></div>
+                                      <p class="product-price">450.000 fr</p>
+                                      <a href="product-details.html">
+                                          <h6>Modern Chair</h6>
+                                      </a>
+                                  </div>
+                                  <!-- Ratings & Cart -->
+                                  <div class="ratings-cart text-right">
+                                      <div class="ratings">
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                      </div>
+                                      <div class="cart">
+                                          <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="../img/core-img/cart.png" alt=""></a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-12 col-xl-4">
+                          <div class="single-product-wrapper">
+                              <!-- Product Image -->
+                              <div class="product-img">
+                                  <img src="../img/product-img/product4.jpg" alt="">
+                                  <!-- Hover Thumb -->
+                                  <img class="hover-img" src="../img/product-img/product5.jpg" alt="">
+                              </div>
+
+                              <!-- Product Description -->
+                              <div class="product-description d-flex align-items-center justify-content-between">
+                                  <!-- Product Meta Data -->
+                                  <div class="product-meta-data">
+                                      <div class="line"></div>
+                                      <p class="product-price">271.000 fr</p>
+                                      <a href="product-details.html">
+                                          <h6>Modern Chair</h6>
+                                      </a>
+                                  </div>
+                                  <!-- Ratings & Cart -->
+                                  <div class="ratings-cart text-right">
+                                      <div class="ratings">
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                      </div>
+                                      <div class="cart">
+                                          <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="../img/core-img/cart.png" alt=""></a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-12 col-xl-4">
+                          <div class="single-product-wrapper">
+                              <!-- Product Image -->
+                              <div class="product-img">
+                                  <img src="../img/product-img/product5.jpg" alt="">
+                                  <!-- Hover Thumb -->
+                                  <img class="hover-img" src="../img/product-img/product6.jpg" alt="">
+                              </div>
+
+                              <!-- Product Description -->
+                              <div class="product-description d-flex align-items-center justify-content-between">
+                                  <!-- Product Meta Data -->
+                                  <div class="product-meta-data">
+                                      <div class="line"></div>
+                                      <p class="product-price">27.000 fr</p>
+                                      <a href="product-details.html">
+                                          <h6>Modern Chair</h6>
+                                      </a>
+                                  </div>
+                                  <!-- Ratings & Cart -->
+                                  <div class="ratings-cart text-right">
+                                      <div class="ratings">
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                      </div>
+                                      <div class="cart">
+                                          <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="../img/core-img/cart.png" alt=""></a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col-6 col-sm-4 col-md-12 col-xl-4">
+                          <div class="single-product-wrapper">
+                              <!-- Product Image -->
+                              <div class="product-img">
+                                  <img src="../img/product-img/product6.jpg" alt="">
+                                  <!-- Hover Thumb -->
+                                  <img class="hover-img" src="../img/product-img/product1.jpg" alt="">
+                              </div>
+
+                              <!-- Product Description -->
+                              <div class="product-description d-flex align-items-center justify-content-between">
+                                  <!-- Product Meta Data -->
+                                  <div class="product-meta-data">
+                                      <div class="line"></div>
+                                      <p class="product-price">38.000 fr</p>
+                                      <a href="product-details.html">
+                                          <h6>Modern Chair</h6>
+                                      </a>
+                                  </div>
+                                  <!-- Ratings & Cart -->
+                                  <div class="ratings-cart text-right">
+                                      <div class="ratings">
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                      </div>
+                                      <div class="cart">
+                                          <a href="wishlist.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="../img/core-img/cart.png" alt=""></a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-12 x">
+                          <!-- Pagination -->
+                          <nav aria-label="navigation">
+                              <ul class="pagination justify-content-end mt-50">
+                                  <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">02</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">03</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">04</a></li>
+                              </ul>
+                          </nav>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+         </div>
+      </div>
+
+      <section class="footer-section">
+          <div class="container vw">
+              <div class="row">
+                  <div class="col-12">
+                      <div id="copyright">
+                          <div class="container clearfix">
+                              <div class="col_half nobottommargin">
+
+                                  <span class="font-primary"> Copyright ©
+                                      <script>document.write(new Date().getFullYear());</script>
+                                      | Tous droits réservés à <a class="footer-copyright-link"
+                                                                  href="https://www.yumeres.com">
+                                      Yumeres Shop.</a></span>
+                              </div>
+                              <div class="col_half col_last nobottommargin">
+                                  <div class="copyrights-menu copyright-links fright clearfix">
+                                      <a href="https://www.yumeres.com">Acceuil</a>/<a href="#">A propos</a>/<a
+                                          href="mailto:support@yumeres.coml">Support</a>/<a
+                                          href="mailto:contact@yumeres.com">Contact</a>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <script src="../jsfiles/jquery/jquery-2.2.4.min.js"></script>
+      <script src="../jsfiles/popper.min.js"></script>
+      <script src="../jsfiles/bootstrap.min.js"></script>
+      <script src="../jsfiles/plugins.js"></script>
+      <script src="../jsfiles/active.js"></script>
+
+  </body>
+
+  </html>
+
+  <?php
+
+?>
