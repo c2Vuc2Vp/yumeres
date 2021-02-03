@@ -50,7 +50,16 @@
 
       // $pdo->prepare("UPDATE clients SET remember_token = ? WHERE mail = ?")->execute([$cookie, $usermail]);
 
-      redirect("login/index.php?id_cli=".$userid);
+      if ($useractive == 1) {
+
+        redirect("login/index.php?id_cli=".$userid);
+
+        exit();
+
+      }else{
+
+        $errors[] = 'Veuillez activer votre compte via votre e-mail et réessayer plus tard!'
+      }
 
     }
 
@@ -102,6 +111,8 @@
 
         $userid = $userinfo['id'];
 
+        $useractive = $userinfo['active'];
+
         setcookie("remember", $_POST["mail"]."==".sha1($_POST["mail"]."anotherlevelhackey"), time() + 60*60*24*7, '/');
 
         $_SESSION["auth"] = $user;
@@ -110,9 +121,17 @@
 
         // $pdo->prepare("UPDATE clients SET remember_token = ? WHERE mail = ?")->execute([$cookie, $mail]);
 
-        redirect("login/index.php?id_cli=".$userid);
+        if ($useractive == 1) {
 
-        exit();
+          redirect("login/index.php?id_cli=".$userid);
+
+          exit();
+
+        }else{
+
+          $errors[] = 'Veuillez activer votre compte via votre e-mail et réessayer plus tard!'
+        }
+
 
       }else{
 
