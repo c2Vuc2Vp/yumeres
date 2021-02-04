@@ -16,10 +16,10 @@
 
 # a faire!
 
-- page de connexion *V
-- page d'enrégistrement *V
-- couche de la page du compte *V
-- container : tableau de bords avec les states *X
-- container : lister les articles postés dans un tableau *V
-- container : insertion d'artivcle *---
-- container : paramètre *X
+- page de connexion clients *V
+- page d'enrégistrement clients *V
+- couche de la page du compte clients *V
+- container clients : tableau de bords avec les states *X
+- container clients : lister les articles postés dans un tableau *V
+- container clients : insertion d'artivcle *---
+- container clients : paramètre *X
