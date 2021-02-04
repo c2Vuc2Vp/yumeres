@@ -1,20 +1,20 @@
 # yumeres
 
-colaborateur
+# colaborateurs
 - okami-test27 : https://www.github.com/okami-test27
 - c2Vuc2Vp : https://www.github.com/c2Vuc2Vp
 
-consignes :
+# consignes :
 
 - importer la base de données *yumeres.sql*
 
-Comptes teste :
+# comptes teste :
 
 - Sensei@gmail.com : Sensei
 - teste@gmail.com : teste
 - sen@gmail.com : sen
 
-# A faire!
+# a faire!
 
 - page de connexion *V
 - page d'enrégistrement *V
