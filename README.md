@@ -1,8 +1,8 @@
 # yumeres
 
 colaborateur
-okami : https://www.github.com/okami-test27
-c2Vuc2Vp : https://www.github.com/c2Vuc2Vp
+- okami-test27 : https://www.github.com/okami-test27
+- c2Vuc2Vp : https://www.github.com/c2Vuc2Vp
 
 consignes :
 
