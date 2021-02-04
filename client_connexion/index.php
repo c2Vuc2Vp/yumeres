@@ -58,7 +58,7 @@
 
       }else{
 
-        $errors[] = 'Veuillez activer votre compte via votre e-mail et réessayer plus tard!'
+        $errors[] = 'Veuillez activer votre compte via votre e-mail et réessayer plus tard!';
       }
 
     }
@@ -129,7 +129,7 @@
 
         }else{
 
-          $errors[] = 'Veuillez activer votre compte via votre e-mail et réessayer plus tard!'
+          $errors[] = 'Veuillez activer votre compte via votre e-mail et réessayer plus tard!';
         }
 
 
