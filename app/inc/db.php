@@ -8,6 +8,7 @@ try{
 }catch(PDOException $e){
   header("location: inc/install.php?install=oui");
   exit;
+
 }
 
 

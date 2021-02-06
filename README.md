@@ -11,7 +11,6 @@
 # comptes teste :
 
 - Sensei@gmail.com : Sensei
-- teste@gmail.com : teste
 - sen@gmail.com : sen
 
 # a faire!

@@ -5,8 +5,9 @@ try{
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);/*
   $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);*/
 }catch(PDOException $e){
-  header("location: inc/install.php?install=oui");
-  exit;
+  // header("location: inc/install.php?install=oui");
+  // exit;
+  die($e);
 }
 
 

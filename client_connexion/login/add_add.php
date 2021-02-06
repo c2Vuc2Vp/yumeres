@@ -22,7 +22,9 @@
 
       extract($_POST);
 
-      echo $nom;
+      $insert = $pdo->prepare("INSERT INTO articles SET nom = ?, img = ?, img2 = ?, prix = ?, cat = ?, descr = ?");
+
+      $insert->execute([]);
 
     }
 

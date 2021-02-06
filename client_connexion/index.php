@@ -16,6 +16,12 @@
 
   if (!isset($_SESSION['id']) && isset($_COOKIE['remember']) && !empty($_COOKIE['remember'])) {
 
+    /////////////////////////////////////////
+    // initialisation du tableau d'erreurs //
+    /////////////////////////////////////////
+
+    $errors = [];
+
     $split = mb_split("==", $_COOKIE['remember']);
 
     $mail = $split[0];
@@ -33,6 +39,8 @@
     $usermail =  $userinfo['mail'];
 
     $usercookie = $userinfo['remember_token'];
+
+    $useractive = $userinfo['active'];
 
     $usersplit = mb_split("==", $usercookie);
 
@@ -58,7 +66,7 @@
 
       }else{
 
-        $errors[] = 'Veuillez activer votre compte via votre e-mail et réessayer plus tard!';
+        $errors[] = "Veuillez activer votre compte via votre e-mail et réessayer plus tard!";
       }
 
     }
@@ -86,6 +94,12 @@
       $pass = $_POST['password'];
 
       $user = $_POST['mail'];
+
+      /////////////////////////////////////////
+      // initialisation du tableau d'erreurs //
+      /////////////////////////////////////////
+
+      $errors = [];
 
       /////////////////////////////////////
       // protection contre la faille xss //
@@ -129,13 +143,13 @@
 
         }else{
 
-          $errors[] = 'Veuillez activer votre compte via votre e-mail et réessayer plus tard!';
+          $errors[] = "Veuillez activer votre compte via votre e-mail et réessayer plus tard!";
         }
 
 
       }else{
 
-        $errors[] = 'Identifiants incorrectes, vérifier (Username ou Password)!';
+        $errors[] = "Identifiants incorrectes, vérifier (Username ou Password)!";
 
       }
 

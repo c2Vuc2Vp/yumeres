@@ -32,13 +32,35 @@ require_once"../../add.php";
 
               <option>Choisir</option>
 
-              <option value="1">Option #1</option>
+              <<?php
 
-              <option value="2">Option #2</option>
+                $cat = $pdo->query("SELECT list_cat FROM categories");
 
-              <option value="3">Option #3</option>
+                while ($categorie = $cat->fetch()){
+
+                  ?>
+
+                    <option value="<?=$categorie['list_cat']?>"><?=$categorie['list_cat']?></option>
+
+                  <?php
+
+                }
+
+              ?>
 
             </select>
+
+            <script type="text/javascript">
+
+              $(document).ready(function() {
+
+                if ($('#categorie option:selected').length > 0) {
+
+                  alert('has a selected item');
+
+                }
+
+            </script>
 
           </div>
 

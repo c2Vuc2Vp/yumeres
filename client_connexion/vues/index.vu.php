@@ -57,16 +57,12 @@
             </span>
 
             <?php
-              include ('../app/inc/_flash.php');
-                if(isset($errors)){
+                if (isset($_POST['login'])) {
 
-                  ?>
+                  include ('../app/inc/_flash.php');
+                  include('../app/inc/_errors.php');
 
-                  <div class="alert-validate"><?=$errors?><button type="button" class="close" data-dismiss="alert">&times;</div>
-
-                <?php
-
-              }
+                }
 
             ?>
 
