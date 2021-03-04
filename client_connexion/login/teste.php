@@ -6,38 +6,45 @@
 
   session_start();
 
-  require_once "../../inc/function.php";
+  //////////////////////////////////////////////////////////////
+  // inclure le fichier de fonction et de connection à la bdd //
+  //////////////////////////////////////////////////////////////
 
-  require_once "../../inc/connect.php";
+  require_once "../../../../app/inc/function.php";
 
-  if (isset($_COOKIE['remember'])) {
+  require_once "../../../../app/inc/connect.php";
 
-    // $cookie_v = $_POST["mail"]."==".sha1($_POST["mail"]."anotherlevelhackey");
+  $user = $_SESSION['auth'];
 
-    $split = split("==", $_COOKIE['remember']);
+  if($_SESSION['auth']){
 
-    $mail = $split[1];
+    ////////////////////////////////////
+    // Récupération des infos clients //
+    ////////////////////////////////////
 
-    $cookie = $split[2];
+    $requser = $pdo->prepare("SELECT * FROM clients WHERE mail = '$user'");
 
-    $req = $pdo->prepare("SELECT * FROM clients WHERE mail = '$mail'");
+    $requser->execute(array());
 
-    $req->execute(array());
+    $userinfo = $requser->fetch();
 
-    $userinfo = $req->fetch();
+    $userid = $userinfo['id'];
 
-    $usercookie = $userinfo['remember_token'];
+    $username = $userinfo['username'];
 
-    if ($cookie == $usercookie) {
+    $usermail = $userinfo['mail'];
 
-      echo 'connect';
+    $usernum = $userinfo['tel_1'];
 
-    }
+    $usernum2 = $userinfo['tel_2'];
+
+  }elseif (!isset($_SESSION["auth"])){
+
+    redirect('../../logout.php');
 
   }
 
-
-?>
+  ?>
 
 
 

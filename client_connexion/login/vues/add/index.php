@@ -16,7 +16,7 @@ require_once"../../add.php";
 
     <div class="card-body card-block">
 
-      <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+      <form class="form-horizontal" id="form-horizontal" enctype='multipart/form-data'>
 
         <div class="row form-group">
 
@@ -50,19 +50,33 @@ require_once"../../add.php";
 
             </select>
 
-            <script type="text/javascript">
+          </div>
 
-              $(document).ready(function() {
+        </div>
 
-                if ($('#categorie option:selected').length > 0) {
+        <div class="row form-group">
 
-                  alert('has a selected item');
+          <div class="col col-md-3">
 
-                }
-
-            </script>
+            <label for="select" class=" form-control-label">Sous categorie</label>
 
           </div>
+
+          <div class="col-12 ml-auto col-md-6">
+
+            <select name="sous_categorie" id="sous_categorie" class="form-control">
+
+              <!-- les options seront charger ici en ajax -->
+
+            </select>
+
+          </div>
+
+        </div>
+
+        <div id="infor" class="row form-group">
+
+          <!-- la balise de selection sera charge ici pour les sous sous categories -->
 
         </div>
 
@@ -78,13 +92,7 @@ require_once"../../add.php";
 
             <select name="marque" id="marque" class="form-control">
 
-              <option>Choisir</option>
-
-              <option value="1">Option #1</option>
-
-              <option value="2">Option #2</option>
-
-              <option value="3">Option #3</option>
+             <!-- les options seront charger ici en ajax -->
 
             </select>
 
@@ -114,29 +122,19 @@ require_once"../../add.php";
 
           <div class="col col-md-3">
 
-            <label for="file-input" class=" form-control-label">Image principale</label>
+            <label for="file-input" class=" form-control-label">Images</label>
 
           </div>
 
-          <div class="col-12 ml-auto col-md-6">
+          <!-- <input id="filepond" type="file" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3"> -->
 
-            <input type="file" id="img_1" name="img_1" class="form-control-file">
+          <!-- <input type="file"> -->
 
-          </div>
+          <div class="col-12 ml-auto col-md-6 dropzone needsclick dz-clickable" id="dropzone">
 
-        </div>
-
-        <div class="row form-group">
-
-          <div class="col col-md-3">
-
-            <label for="file-input" class=" form-control-label">Image secondaire</label>
-
-          </div>
-
-          <div class="col-12 ml-auto col-md-6">
-
-            <input type="file" id="img_2" name="img_2" class="form-control-file">
+            <div class="dz-message needsclick">
+              <button type="button" class="dz-button">Deplacer <strong>ici</strong> ou cliquer pour télécharger.</button><br>
+            </div>
 
           </div>
 
@@ -150,19 +148,13 @@ require_once"../../add.php";
 
           </div>
 
-          <div class="col-12 ml-auto col-md-9">
+          <div class="">
 
             <!-- <textarea name="description" id="description" rows="9" placeholder="Content..." class="textarea form-control"></textarea> -->
 
             <div id="editor"></div>
 
           </div>
-
-          <script type="text/javascript">
-
-            ClassicEditor.create(document.querySelector('#editor')).catch(error => {console.error(error)});
-
-          </script>
 
         </div>
 
@@ -184,7 +176,7 @@ require_once"../../add.php";
 
               </div> -->
 
-              <input type="text" id="input3-group1" name="prix" placeholder=".." class="form-control">
+              <input type="text" id="prix" name="prix" placeholder=".." class="form-control" onkeypress="isInputNumber(event);">
 
               <div class="input-group-addon">CFA</div>
 
@@ -208,42 +200,231 @@ require_once"../../add.php";
 
     <script>
 
+      // fonction de restriction de caractère au nombre
+
+      function isInputNumber(evt){
+
+        var ch = String.fromCharCode(evt.which);
+
+        if(!(/[0-9]/.test(ch))){
+
+          evt.preventDefault();
+
+        }
+
+      };
+
+      // ckeditor
+
+      CKEDITOR.replace('editor');
+
+      // dropzone envoie églament les valeurs des autres input
+
+      var dropzone = $("#dropzone").dropzone({
+        url: 'add_add.php',
+        maxFilesize: 8,
+        maxFiles: 6,
+        addRemoveLinks: true,
+        uploadMultiple: true,
+        parallelUploads: 100,
+        paramName: 'file',
+        autoProcessQueue: false,
+        dictDefaultMessage: 'Drag an image here to upload, or click to select one',
+        acceptedFiles: 'image/*,application/pdf',
+        clickable: true,
+        init: function () {
+
+            var myDropzone = this;
+            // Update selector to match your button
+            $('#add_article').click(function () {
+
+                    myDropzone.processQueue();
+
+            });
+
+            this.on('sendingmultiple', function (file, xhr, formData) {
+                // Append all form inputs to the formData Dropzone will POST
+                var data = $('#form-horizontal').serializeArray();
+
+                $.each(data, function (key, el) {
+                    formData.append(el.name, el.value);
+                });
+                console.log(formData);
+                CKEDITOR.instances.editor.setData("");
+
+            });
+        },
+        error: function (file, response){
+            if ($.type(response) === "string")
+                var message = response; //dropzone sends it's own error messages in string
+            else
+                var message = response.message;
+            file.previewElement.classList.add("dz-error");
+            _ref = file.previewElement.querySelectorAll("[data-dz-errormessage]");
+            _results = [];
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                node = _ref[_i];
+                _results.push(node.textContent = message);
+            }
+            return _results;
+        },
+        successmultiple: function (file, response) {
+
+          console.log(file,response);
+
+        },
+        completemultiple: function (file, response) {
+            // console.log(file, response, "completemultiple");
+            // $modal.modal("show");
+        },
+        reset: function () {
+            console.log("resetFiles");
+            this.removeAllFiles(true);
+        }
+      });
+
       $(document).ready(function() {
+
+        // chargement de la sous_categorie
+
+        $("select#categorie").change(function(){
+
+          if ($(this).children("option:selected")){
+
+            const categorie = $(this).children("option:selected").val()
+
+            const url = 'add_categorie.php'
+
+            $.ajax({
+
+              type: 'POST',
+
+              url: url,
+
+              data: {
+
+                categorie : categorie,
+              },
+
+              success: function(reponse){
+
+                $('#sous_categorie').html(reponse).show();
+              }
+
+            });
+
+          };
+
+        });
+
+        // chargement de la sous_categorie_infor
+
+        $("select#sous_categorie").change(function(){
+
+          if ($(this).children("option:selected")){
+
+            const sous_categorie = $(this).children("option:selected").val()
+
+            const url = 'add_sous_categorie.php'
+
+            $.ajax({
+
+              type: 'POST',
+
+              url: url,
+
+              data: {
+
+                sous_categorie : sous_categorie,
+              },
+
+              success: function(reponse){
+
+                $('#infor').html(reponse).show();
+              }
+
+            });
+
+          };
+
+        });
+
+        // chargement de la marque depuis les sous categories
+        $("select#sous_categorie").change(function(){
+
+          if ($(this).children("option:selected")){
+
+            const marque = $(this).children("option:selected").val()
+
+            const url = 'add_marque.php'
+
+            $.ajax({
+
+              type: 'POST',
+
+              url: url,
+
+              data: {
+
+                marque : marque,
+              },
+
+              success: function(reponse){
+
+                $('#marque').html(reponse).show();
+              }
+
+            });
+
+          };
+
+        });
 
         //ajout d'article
 
-        $(document).on('click','#add_article',function(){
+        // $(document).on('click','#add_article',function(){
 
-          const url = 'add_add.php';
+        //   const url = 'add_add.php';
 
-          const cat = $('#categorie').val();
+        //   const cat = $('#categorie').val();
 
-          const marque = $('#marque').val();
+        //   const sous_categorie = $('#sous_categorie').val();
 
-          const nom = $('#nom').val();
+        //   const sous_categorie_infor = $('#sous_categorie_infor').val();
 
+        //   const marque = $('#marque').val();
 
-          // console.log('teste');
+        //   const nom = $('#nom').val();
 
-          $.ajax({
+        //   const descr = CKEDITOR.instances.editor.getData();
 
-            type: 'POST',
+        //   const prix = $('#prix').val();
 
-            url: url,
+        //   $.ajax({
 
-            data: {
+        //     type: 'POST',
 
-              nom : nom,
-            },
+        //     url: url,
 
-            success: function(reponse){
+        //     data: {
 
-              console.log(reponse)
-            }
+        //       img_1 : img_1,
 
-          });
+        //       descr : descr,
 
-        });
+        //       prix: prix,
+        //     },
+
+        //     success: function(reponse){
+
+        //       console.log(reponse);
+
+        //       CKEDITOR.instances.editor.setData("");
+        //     }
+
+        //   });
+
+        // });
 
       });
 

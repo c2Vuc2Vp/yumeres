@@ -16,19 +16,4 @@ $(document).ready(function() {
 
   })
 
-  //account page
-  // init
-  $('#container_home').load('content_home.php');
-
-  $('a.nav-link').click(function(){
-
-    const contain = $(this).attr('id');
-
-    $('#container_home').load(contain + '.php');
-
-    $('a.nav-link.active').removeClass('active');
-    $(this).addClass('active');
-
-  })
-
 });

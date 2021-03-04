@@ -63,6 +63,9 @@
     <link href="css/theme.css" rel="stylesheet" media="all">
     <!--===============================================================================================-->
     <link rel="stylesheet" href="<?=$assets?>css/style.css">
+    <!--===============================================================================================-->
+    <!-- dropzoneCSS -->
+    <link rel="stylesheet" href="<?=$vendor?>dropzone5/dist/dropzone.css">
     <!-- Jquery JS-->
     <script src="<?=$vendor?>jQuery-3.3.1/jquery-3.3.1.js"></script>
 
@@ -77,8 +80,12 @@
     <!--===============================================================================================-->
     <!-- sweetalert -->
     <script src="<?=$vendor?>sweetalert/sweetalert2.js"></script>
-    <!-- CKeditor5 -->
-    <script src="<?=$vendor?>CKeditor5/ckeditor.js"></script>
+    <!--===============================================================================================-->
+    <!-- CKeditor4 -->
+    <script src="<?=$vendor?>ckeditor_4/ckeditor/ckeditor.js"></script>
+    <!--===============================================================================================-->
+    <!-- dropzoneJS -->
+    <script src="<?=$vendor?>dropzone5/dist/dropzone.js"></script>
 
   </head>
 

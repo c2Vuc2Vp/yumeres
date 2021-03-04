@@ -19,8 +19,7 @@
           </li>
           <br>
           <li>
-              <a href="teste.php">
-                  <i class="far fa-check-square"></i>teste</a>
+              <button class="link btn btn-outline-danger" id="teste" type="button"><i class="fas fa-cogs"></i>&nbsp; teste</button>
           </li>
 
       </ul>
