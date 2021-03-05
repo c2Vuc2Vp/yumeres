@@ -22,3 +22,4 @@
 - container clients : lister les articles postés dans un tableau *V
 - container clients : insertion d'artivcle *---
 - container clients : paramètre *X
+teste
