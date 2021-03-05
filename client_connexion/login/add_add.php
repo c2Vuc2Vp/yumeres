@@ -26,21 +26,21 @@
 
         $max = 8000000;
 
-        foreach($_FILES['file']['name'] as $key => $file){
+        foreach($_FILES['file']['tmp'] as $key => $file_tmp){
 
             $size = $_FILES['file']['size'];
 
             $ext = array('jpg','jpeg','gif','png');
 
-            $extup = strtolower(substr(strrchr($file, '.'),1));
+            $extup = strtolower(substr(strrchr($file_tmp, '.'),1));
 
             if(in_array($extup,$ext)){
 
               $chemin = "clients/img_article/".$user.".".$extup."/";
 
-              $file_tmp = $_FILES['file']['tmp_name']['$key'];
+              $file = $_FILES['file']['name']['$key'];
 
-              $deplacement = move_uploaded_file($file_tmp, $chemin);
+              $deplacement = move_uploaded_file($file, $chemin);
 
               if($deplacement){
 
