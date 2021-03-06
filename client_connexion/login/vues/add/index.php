@@ -250,7 +250,7 @@ require_once"../../add.php";
                     formData.append(el.name, el.value);
                 });
                 console.log(formData);
-                CKEDITOR.instances.editor.setData("");
+                /*CKEDITOR.instances.editor.setData("");*/
 
             });
         },

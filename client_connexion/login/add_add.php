@@ -22,13 +22,14 @@
 
       extract($_POST);
 
+
       if(isset($_FILES["file"]) AND !empty($_FILES["file"]["name"])){
 
+        $_POST["default_pic"] = $_FILES["file"]["name"][0];
         $max = 8000000;
-
+        $ext = array('jpg','jpeg','gif','png');
         print("ORIGINAL STRUCTURE OF \$_FILES:\n");
         print_r($_FILES);
-
         $myfiles = array();
 
         foreach(array_keys($_FILES["file"]['name']) as $i) { // loop over 0,1,2,3 etc...
@@ -43,18 +44,46 @@
 
         print("RESULT STRUCTURE OF THE MANIPULATED \$_FILES:\n");
         print_r($myfiles);
-
+        $chemin = "clients/img_article/".$user."/";
         $myimages = array();
 
         foreach($myfiles as $single_image) {
-            $extension = pathinfo($single_image["name"], PATHINFO_EXTENSION);
-            $img = $single_image["name"];
-            $img_name = $id . "_" . uniqid() . "_" . ($_POST['default_pic'] == $img ? "1" : "0") . "." . $extension;
-            $targetFile = $targetDir.basename($img_name);
-            if (move_uploaded_file($single_image["tmp_name"], $targetFile)){
-                $myimages[] = array("cover" => ($_POST['default_pic'] == $img ? "1" : "0"), "img" => $img_name);
+
+          if ($single_image['size'] <= $max) {
+
+            #extraction de l'extension de l'image
+            $extup = strtolower(substr(strrchr($single_image['name'], '.'),1)); 
+            
+            if (in_array($extup, $ext)) {
+       
+              $extension = pathinfo($single_image['name'], PATHINFO_EXTENSION);
+              $img = $single_image['name'];
+              $img_name = ($_POST['default_pic'] == $img ? "1" : "0") . "." . $extension;
+              $dossier = $chemin.$categorie.'/'.$sous_categorie.'/'.$sous_categorie_infor.'/'.$nom;
+              
+              if (!$dossier) {
+                
+                mkdir($chemin.$categorie.'/'.$sous_categorie.'/'.$sous_categorie_infor.'/'.$nom, 0775, true);
+              
+              }else{
+
+                $targetFile = $chemin.$categorie.'/'.$sous_categorie.'/'.$sous_categorie_infor.'/'.$nom.'/'.basename($img_name);
+
+                if (move_uploaded_file($single_image['tmp_name'], $targetFile)){
+                
+                    $myimages[] = array("cover" => ($_POST['default_pic'] == $img ? "1" : "0"), "img" => $img_name);
+                
+                }
+                
+              }
+
+
             }
+
+          }
+       
         }
+
         $data_serialize = serialize($myimages);
         print("SERIALIZED DATA:\n");
         print($data_serialize);
