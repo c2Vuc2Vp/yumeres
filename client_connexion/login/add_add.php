@@ -26,7 +26,40 @@
 
         $max = 8000000;
 
-        foreach($_FILES['file']['tmp'] as $key => $file_tmp){
+        print("ORIGINAL STRUCTURE OF \$_FILES:\n");
+        print_r($_FILES);
+
+        $myfiles = array();
+
+        foreach(array_keys($_FILES["file"]['name']) as $i) { // loop over 0,1,2,3 etc...
+        
+          foreach(array_keys($_FILES["file"]) as $j) { // loop over 'name', 'size', 'error', etc...
+            
+            $myfiles[$i][$j] = $_FILES["file"][$j][$i]; // "swap" keys and copy over original array values
+          
+          }
+        
+        }
+
+        print("RESULT STRUCTURE OF THE MANIPULATED \$_FILES:\n");
+        print_r($myfiles);
+
+        $myimages = array();
+
+        foreach($myfiles as $single_image) {
+            $extension = pathinfo($single_image["name"], PATHINFO_EXTENSION);
+            $img = $single_image["name"];
+            $img_name = $id . "_" . uniqid() . "_" . ($_POST['default_pic'] == $img ? "1" : "0") . "." . $extension;
+            $targetFile = $targetDir.basename($img_name);
+            if (move_uploaded_file($single_image["tmp_name"], $targetFile)){
+                $myimages[] = array("cover" => ($_POST['default_pic'] == $img ? "1" : "0"), "img" => $img_name);
+            }
+        }
+        $data_serialize = serialize($myimages);
+        print("SERIALIZED DATA:\n");
+        print($data_serialize);
+
+       /* foreach($_FILES['file']['tmp_name'] as $key => $file_tmp){
 
             $size = $_FILES['file']['size'];
 
@@ -52,7 +85,7 @@
 
             }
 
-        }
+        }*/
 
       }
 
