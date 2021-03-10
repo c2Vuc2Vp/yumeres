@@ -18,6 +18,41 @@ require_once"../../add.php";
 
       <form class="form-horizontal" id="form-horizontal" enctype='multipart/form-data'>
 
+        <input type="hidden" id="username" name="username" value="<?=$username?>">
+        <div class="row form-group">
+
+          <div class="col col-md-3">
+
+            <label for="text-input" class=" form-control-label">Nom de l'article</label>
+
+          </div>
+
+          <div class="col-12 ml-auto col-md-6">
+
+            <input type="text" id="nom" name="nom" placeholder="Entrer le nom de l'article" class="form-control">
+
+            <small class="form-text text-muted">Un nom accrocheur</small>
+
+          </div>
+
+        </div>
+
+        <div class="row form-group">
+
+          <div class="col col-md-3">
+
+            <label for="text-input" class=" form-control-label">Nombre d'article</label>
+
+          </div>
+
+          <div class="col-12 ml-auto col-md-6">
+
+            <input type="number" id="stock" name="stock" min="1" value="1" class="form-control">
+
+          </div>
+
+        </div>
+
         <div class="row form-group">
 
           <div class="col col-md-3">
@@ -104,24 +139,6 @@ require_once"../../add.php";
 
           <div class="col col-md-3">
 
-            <label for="text-input" class=" form-control-label">Nom de l'article</label>
-
-          </div>
-
-          <div class="col-12 ml-auto col-md-6">
-
-            <input type="text" id="nom" name="nom" placeholder="Entrer le nom de l'article" class="form-control">
-
-            <small class="form-text text-muted">Un nom accrocheur</small>
-
-          </div>
-
-        </div>
-
-        <div class="row form-group">
-
-          <div class="col col-md-3">
-
             <label for="file-input" class=" form-control-label">Images</label>
 
           </div>
@@ -189,13 +206,21 @@ require_once"../../add.php";
       </form>
 
     </div>
+
     <div class="card-footer">
-        <button id="add_article" class="btn btn-primary btn-sm">
-            <i class="fa fa-dot-circle-o"></i> Submit
-        </button>
-        <button type="reset" class="btn btn-danger btn-sm">
-            <i class="fa fa-ban"></i> Reset
-        </button>
+      
+      <button id="add_article" class="btn btn-primary btn-sm">
+       
+        <i class="fa fa-dot-circle-o"></i> Poster
+      
+      </button>
+
+      <button type="reset" id="reset" class="btn btn-danger btn-sm">
+        
+        <i class="fa fa-ban"></i> Effacer
+     
+      </button>
+   
     </div>
 
     <script>
@@ -214,11 +239,11 @@ require_once"../../add.php";
 
       };
 
-      // ckeditor
+      // activation ckeditor
 
       CKEDITOR.replace('editor');
 
-      // dropzone envoie églament les valeurs des autres input
+      // activation dropzone et envoie églament les valeurs des autres input
 
       var dropzone = $("#dropzone").dropzone({
         url: 'add_add.php',
@@ -234,23 +259,24 @@ require_once"../../add.php";
         clickable: true,
         init: function () {
 
-            var myDropzone = this;
-            // Update selector to match your button
+            var dz = this;
+            // Utilisation du button #add_article pour soumettre les images
             $('#add_article').click(function () {
 
-                    myDropzone.processQueue();
+              dz.processQueue();
 
             });
 
+            // actions excuté pendant l'envoi
             this.on('sendingmultiple', function (file, xhr, formData) {
-                // Append all form inputs to the formData Dropzone will POST
-                var data = $('#form-horizontal').serializeArray();
+              // poste des valeur des champs du formulaire par ajax
+              var data = $('#form-horizontal').serializeArray();
 
-                $.each(data, function (key, el) {
-                    formData.append(el.name, el.value);
-                });
-                console.log(formData);
-                /*CKEDITOR.instances.editor.setData("");*/
+              $.each(data, function (key, el) {
+                  formData.append(el.name, el.value);
+              });
+              formData.append('content', CKEDITOR.instances['editor'].getData());
+              console.log(formData);
 
             });
         },
@@ -271,6 +297,34 @@ require_once"../../add.php";
         successmultiple: function (file, response) {
 
           console.log(file,response);
+          CKEDITOR.instances.editor.setData("");
+          $('#form-horizontal')[0].reset();
+          
+          /*Swal.fire({
+
+            position: 'top-end',
+            title: 'Insertion',
+            text: "Article inséré avec success.",
+            type: 'success',
+            showConfirButton: false,
+            timer: 3000
+          
+          }).then((result) =>{});*/
+
+          Swal.fire({
+
+            position: 'top-end',
+            title: 'Insertion',
+            text: "Article inséré avec success.",
+            type: 'success',
+            showConfirmButton: false,
+            timer: 3000
+          
+          }).then((result) =>{
+
+            $('.main-content').load('vues/add');
+
+          });
 
         },
         completemultiple: function (file, response) {
@@ -278,13 +332,21 @@ require_once"../../add.php";
             // $modal.modal("show");
         },
         reset: function () {
-            console.log("resetFiles");
-            this.removeAllFiles(true);
+            console.log("Images retirées");
         }
       });
 
       $(document).ready(function() {
 
+        // vider les champs du formulaire
+        
+        $('#reset').click(function () {
+
+          $('#form-horizontal')[0].reset();
+          dropzone.removeAllFiles(true);
+          CKEDITOR.instances.editor.setData("");
+
+        });
         // chargement de la sous_categorie
 
         $("select#categorie").change(function(){
@@ -379,52 +441,6 @@ require_once"../../add.php";
           };
 
         });
-
-        //ajout d'article
-
-        // $(document).on('click','#add_article',function(){
-
-        //   const url = 'add_add.php';
-
-        //   const cat = $('#categorie').val();
-
-        //   const sous_categorie = $('#sous_categorie').val();
-
-        //   const sous_categorie_infor = $('#sous_categorie_infor').val();
-
-        //   const marque = $('#marque').val();
-
-        //   const nom = $('#nom').val();
-
-        //   const descr = CKEDITOR.instances.editor.getData();
-
-        //   const prix = $('#prix').val();
-
-        //   $.ajax({
-
-        //     type: 'POST',
-
-        //     url: url,
-
-        //     data: {
-
-        //       img_1 : img_1,
-
-        //       descr : descr,
-
-        //       prix: prix,
-        //     },
-
-        //     success: function(reponse){
-
-        //       console.log(reponse);
-
-        //       CKEDITOR.instances.editor.setData("");
-        //     }
-
-        //   });
-
-        // });
 
       });
 
