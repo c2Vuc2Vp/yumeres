@@ -48,21 +48,21 @@
     // selection des id suppérieur à l'id posté //
     //////////////////////////////////////////////
 
-    $query = $pdo->query("SELECT id FROM articles WHERE id > '$id'");
+    //$query = $pdo->query("SELECT id FROM articles WHERE id > '$id'");
 
-    $fetch = $query->fetch();
+    //$fetch = $query->fetch();
 
-    $id_cal = $fetch['id'];
+    //$id_cal = $fetch['id'];
 
     //////////////////////////////////////////////////////////
     // soustraire 1 de tous les id suppérieurs à l'id posté //
     //////////////////////////////////////////////////////////
 
-    $cal_id = $id_cal - 1;
+    //$cal_id = $id_cal - 1;
 
-    $query = $pdo->prepare("DELETE FROM articles WHERE id = ? AND username = ?");
+    //$query = $pdo->prepare("DELETE FROM articles WHERE id = ? AND username = ?");
 
-    $query->execute([$id,$username]);
+    //$query->execute([$id,$username]);
 
     // $query = $pdo->prepare("UPDATE $user SET id = '$cal_id' WHERE id > '$id'");
 

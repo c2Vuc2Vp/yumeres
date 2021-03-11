@@ -46,7 +46,7 @@
 
           <div class="col-12 ml-auto col-md-6">
 
-            <select name="sous_categorie_infor" id="sous_categorie_infor" class="form-control">
+            <select name="sous_categorie_infor" id="sous_categorie_infor" class="form-control" required="">
 
               <option>Choisir</option>
         <?php

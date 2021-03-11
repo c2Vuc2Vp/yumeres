@@ -1,3 +1,15 @@
+<?php
+
+  $assets = 'assets/';
+
+  $vendor = '../vendor/';
+
+  $js = 'login/js/';
+
+  $css = 'login/css/';
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -16,28 +28,25 @@
 
     <meta name="author" content="<?=AUTHOR?>">
 
-    <link rel="stylesheet" type="text/css" href="../stylefiles/w3.css"/>
+    <link rel="stylesheet" type="text/css" href="<?=$css?>w3.css"/>
 
-    <link rel="stylesheet" href="../stylefiles/main.css" type="text/css">
+    <link rel="stylesheet" href="<?=$css?>main.css" type="text/css">
 
-    <link rel="stylesheet" href="../stylefiles/sweetalert2.css">
-
-    <script src="../jsfiles/jquery/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="<?=$vendor?>sweetalert/sweetalert2.css">
 
     <link rel="icon" type="image/png" href="../img/core-img/favicon.ico"/>
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?=$vendor?>bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="<?=$vendor?>animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="<?=$vendor?>css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="<?=$vendor?>select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../stylefiles/util.css">
-    <link rel="stylesheet" type="text/css" href="../stylefiles/main.css">
+    <link rel="stylesheet" type="text/css" href="<?=$css?>util.css">
     <!--===============================================================================================-->
 
   </head>
@@ -51,7 +60,7 @@
             <img class="w3-circle" src="../img/elements/logo/logo_ob.jpg" alt="Y">
           </div>
 
-          <form class="login100-form validate-form" id="formmasuk" method="post" action="">
+          <form class="login100-form validate-form" id="formmasuk" method="post" action="" autocomplete="off">
             <span class="login100-form-title">
               Espace membres connexion
             </span>
@@ -109,7 +118,7 @@
     </div>
 
     <!--===============================================================================================-->
-      <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+      <script src="<?=$vendor?>jQuery-3.3.1/jquery-3.3.1.js"></script>
     <!--===============================================================================================-->
       <script src="../vendor/bootstrap/js/popper.js"></script>
       <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -123,7 +132,7 @@
         })
       </script>
     <!--===============================================================================================-->
-      <script src="../jsfiles/main.js"></script>
+      <script src="<?=$js?>main_2.js"></script>
 
   </body>
 

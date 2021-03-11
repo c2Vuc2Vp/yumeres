@@ -14,13 +14,10 @@
               <button class="link btn btn-outline-secondary" id="list" type="button"><i class="fas fa-list"></i>&nbsp; liste</button>
           </li>
           <br>
-          <li>
+          <!-- <li>
               <button class="link btn btn-outline-danger" id="setting" type="button"><i class="fas fa-cogs"></i>&nbsp; Paramètre</button>
-          </li>
+          </li> -->
           <br>
-          <li>
-              <button class="link btn btn-outline-danger" id="teste" type="button"><i class="fas fa-cogs"></i>&nbsp; teste</button>
-          </li>
 
       </ul>
   </nav>

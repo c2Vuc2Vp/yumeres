@@ -29,7 +29,7 @@ require_once"../../add.php";
 
           <div class="col-12 ml-auto col-md-6">
 
-            <input type="text" id="nom" name="nom" placeholder="Entrer le nom de l'article" class="form-control">
+            <input type="text" id="nom" name="nom" placeholder="Entrer le nom de l'article" class="form-control" required="">
 
             <small class="form-text text-muted">Un nom accrocheur</small>
 
@@ -47,7 +47,7 @@ require_once"../../add.php";
 
           <div class="col-12 ml-auto col-md-6">
 
-            <input type="number" id="stock" name="stock" min="1" value="1" class="form-control">
+            <input type="number" id="stock" name="stock" min="1" value="1" class="form-control" required="">
 
           </div>
 
@@ -63,7 +63,7 @@ require_once"../../add.php";
 
           <div class="col-12 ml-auto col-md-6">
 
-            <select name="categorie" id="categorie" class="form-control">
+            <select name="categorie" id="categorie" class="form-control" required="">
 
               <option>Choisir</option>
 
@@ -99,7 +99,7 @@ require_once"../../add.php";
 
           <div class="col-12 ml-auto col-md-6">
 
-            <select name="sous_categorie" id="sous_categorie" class="form-control">
+            <select name="sous_categorie" id="sous_categorie" class="form-control" required="">
 
               <!-- les options seront charger ici en ajax -->
 
@@ -125,7 +125,7 @@ require_once"../../add.php";
 
           <div class="col-12 ml-auto col-md-6">
 
-            <select name="marque" id="marque" class="form-control">
+            <select name="marque" id="marque" class="form-control" required="">
 
              <!-- les options seront charger ici en ajax -->
 
@@ -269,9 +269,10 @@ require_once"../../add.php";
 
             // actions excuté pendant l'envoi
             this.on('sendingmultiple', function (file, xhr, formData) {
+             
+
               // poste des valeur des champs du formulaire par ajax
               var data = $('#form-horizontal').serializeArray();
-
               $.each(data, function (key, el) {
                   formData.append(el.name, el.value);
               });

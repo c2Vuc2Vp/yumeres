@@ -4,6 +4,10 @@
 
   $vendor = '../../vendor/';
 
+  $css = 'css/';
+
+  $js = 'js/';
+
 ?>
 <!DOCTYPE html>
 
@@ -31,7 +35,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" href="<?=$vendor?>sweetalert/sweetalert2.css">
     <!--===============================================================================================-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="<?=$css?>font-face.css" rel="stylesheet" media="all">
     <!--===============================================================================================-->
     <link href="<?=$vendor?>font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <!--===============================================================================================-->
@@ -60,7 +64,7 @@
     <!--===============================================================================================-->
 
     <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link href="<?=$css?>theme.css" rel="stylesheet" media="all">
     <!--===============================================================================================-->
     <link rel="stylesheet" href="<?=$assets?>css/style.css">
     <!--===============================================================================================-->
@@ -254,7 +258,7 @@
                                                     <span class="email"><?=$usermail?></span>
                                                 </div>
                                             </div>
-                                            <div class="account-dropdown__body">
+                                            <!-- <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
@@ -267,7 +271,7 @@
                                                     <a href="#">
                                                         <i class="zmdi zmdi-money-box"></i>Billing</a>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="account-dropdown__footer">
                                                 <a href="logout.php">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
