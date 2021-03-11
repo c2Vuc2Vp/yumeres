@@ -20,7 +20,6 @@
     if (isset($_POST) AND !empty($_POST)) {
 
       extract($_POST);
-      print_r($_POST);
 
       if(isset($_FILES["file"]) AND !empty($_FILES["file"]["name"])){
 
@@ -81,6 +80,15 @@
        
         }
 
+        $nom = xss($nom);
+        $username = xss($username);
+        $stock = xss($stock);
+        $categorie = xss($categorie);
+        $sous_categorie = xss($sous_categorie);
+        $sous_categorie_infor = xss($sous_categorie_infor);
+        $marque = xss($marque);
+        $content = xss($content);
+        $prix = xss($prix);
         $article = $pdo->prepare("INSERT INTO articles SET nom = ?, username = ?, stock = ?, cat = ?, s_cat = ?, s_cat_i = ?, marque = ?, descr = ?, prix = ?");
         $article->execute([$nom, $username, $stock, $categorie, $sous_categorie, $sous_categorie_infor, $marque, $content, $prix]);
 

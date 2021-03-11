@@ -299,17 +299,6 @@ require_once"../../add.php";
           console.log(file,response);
           CKEDITOR.instances.editor.setData("");
           $('#form-horizontal')[0].reset();
-          
-          /*Swal.fire({
-
-            position: 'top-end',
-            title: 'Insertion',
-            text: "Article inséré avec success.",
-            type: 'success',
-            showConfirButton: false,
-            timer: 3000
-          
-          }).then((result) =>{});*/
 
           Swal.fire({
 
@@ -343,7 +332,6 @@ require_once"../../add.php";
         $('#reset').click(function () {
 
           $('#form-horizontal')[0].reset();
-          dropzone.removeAllFiles(true);
           CKEDITOR.instances.editor.setData("");
 
         });

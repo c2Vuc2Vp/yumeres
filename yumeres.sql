@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 05, 2021 at 08:24 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Hôte : 127.0.0.1
+-- Généré le : mer. 10 mars 2021 à 19:27
+-- Version du serveur :  10.4.17-MariaDB
+-- Version de PHP : 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,33 +18,40 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `yumeres`
+-- Base de données : `yumeres`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `articles`
+-- Structure de la table `articles`
 --
 
 CREATE TABLE `articles` (
   `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `img` longblob NOT NULL,
-  `img2` blob NOT NULL,
   `prix` int(11) NOT NULL,
   `cat` varchar(255) NOT NULL,
+  `s_cat` varchar(255) NOT NULL,
+  `s_cat_i` varchar(255) NOT NULL,
   `marque` varchar(255) NOT NULL,
   `stock` int(11) NOT NULL,
-  `livre` tinyint(1) NOT NULL DEFAULT '0',
+  `livre` tinyint(1) NOT NULL DEFAULT 0,
   `descr` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `articles`
+--
+
+INSERT INTO `articles` (`id`, `nom`, `username`, `prix`, `cat`, `s_cat`, `s_cat_i`, `marque`, `stock`, `livre`, `descr`) VALUES
+(9, 'teste', 'Sensei', 1234567890, 'Informatique', 'Ordinateur bureau', 'Unite centrale', 'HP', 12, 0, '&lt;p&gt;descr&lt;/p&gt;\r\n');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Structure de la table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -54,7 +60,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `categories`
+-- Déchargement des données de la table `categories`
 --
 
 INSERT INTO `categories` (`id`, `list_cat`) VALUES
@@ -66,7 +72,7 @@ INSERT INTO `categories` (`id`, `list_cat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clients`
+-- Structure de la table `clients`
 --
 
 CREATE TABLE `clients` (
@@ -78,11 +84,11 @@ CREATE TABLE `clients` (
   `tel_2` varchar(255) DEFAULT NULL,
   `active` enum('0','1') DEFAULT '0',
   `remember_token` varchar(255) DEFAULT '==',
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP
+  `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `clients`
+-- Déchargement des données de la table `clients`
 --
 
 INSERT INTO `clients` (`id`, `username`, `password`, `mail`, `tel_1`, `tel_2`, `active`, `remember_token`, `created_at`) VALUES
@@ -92,18 +98,18 @@ INSERT INTO `clients` (`id`, `username`, `password`, `mail`, `tel_1`, `tel_2`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `marques`
+-- Structure de la table `marques`
 --
 
 CREATE TABLE `marques` (
   `id` int(11) NOT NULL,
   `marque` varchar(255) NOT NULL,
   `id_sous_categorie` int(255) NOT NULL,
-  `id_sous_categorie_infor` int(255) NOT NULL DEFAULT '0'
+  `id_sous_categorie_infor` int(255) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `marques`
+-- Déchargement des données de la table `marques`
 --
 
 INSERT INTO `marques` (`id`, `marque`, `id_sous_categorie`, `id_sous_categorie_infor`) VALUES
@@ -113,7 +119,7 @@ INSERT INTO `marques` (`id`, `marque`, `id_sous_categorie`, `id_sous_categorie_i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sous_categories`
+-- Structure de la table `sous_categories`
 --
 
 CREATE TABLE `sous_categories` (
@@ -123,7 +129,7 @@ CREATE TABLE `sous_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sous_categories`
+-- Déchargement des données de la table `sous_categories`
 --
 
 INSERT INTO `sous_categories` (`id`, `list_cat`, `id_categories`) VALUES
@@ -143,7 +149,7 @@ INSERT INTO `sous_categories` (`id`, `list_cat`, `id_categories`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sous_categories_infor`
+-- Structure de la table `sous_categories_infor`
 --
 
 CREATE TABLE `sous_categories_infor` (
@@ -153,7 +159,7 @@ CREATE TABLE `sous_categories_infor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sous_categories_infor`
+-- Déchargement des données de la table `sous_categories_infor`
 --
 
 INSERT INTO `sous_categories_infor` (`id`, `list_cat`, `id_sous_categories`) VALUES
@@ -165,24 +171,24 @@ INSERT INTO `sous_categories_infor` (`id`, `list_cat`, `id_sous_categories`) VAL
 (6, 'Imprimante & Scanner', 3);
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `articles`
+-- Index pour la table `articles`
 --
 ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categories`
+-- Index pour la table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ind_id` (`id`);
 
 --
--- Indexes for table `clients`
+-- Index pour la table `clients`
 --
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`),
@@ -190,60 +196,60 @@ ALTER TABLE `clients`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indexes for table `marques`
+-- Index pour la table `marques`
 --
 ALTER TABLE `marques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sous_categories`
+-- Index pour la table `sous_categories`
 --
 ALTER TABLE `sous_categories`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ind_id` (`id`);
 
 --
--- Indexes for table `sous_categories_infor`
+-- Index pour la table `sous_categories_infor`
 --
 ALTER TABLE `sous_categories_infor`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `articles`
+-- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `clients`
+-- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `marques`
+-- AUTO_INCREMENT pour la table `marques`
 --
 ALTER TABLE `marques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `sous_categories`
+-- AUTO_INCREMENT pour la table `sous_categories`
 --
 ALTER TABLE `sous_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `sous_categories_infor`
+-- AUTO_INCREMENT pour la table `sous_categories_infor`
 --
 ALTER TABLE `sous_categories_infor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
