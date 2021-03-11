@@ -1,0 +1,580 @@
+/* :: 0.0 General Area CSS */
+
+
+/* :: 0.00 Hack CSS */
+
+
+/* :: 0.01 General Hack CSS */
+
+
+/* :: 0.0 Base CSS */
+
+/* :: 0.1 Categorie CSS */
+.mcwr .sca {
+    z-index: 1;
+    -webkit-box-flex: 0;
+    flex: 0 0 240px;
+    width: 240px;
+    max-width: 240px;
+    padding: 0 0 15px 0;
+    margin: 10px;
+}
+
+.ctnvb .nvh {
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+    font-size: .9rem !important;
+    text-transform: uppercase;
+    letter-spacing: .01rem;
+    padding: 12px 10px;
+}
+
+.ctnvb .srtsct {
+    margin: 6px 0;
+    background: #fff;
+    box-shadow: 0 0 5px 1px #22222217;
+    border-radius: 5px;
+}
+
+.ctnvb .cttm:not(.cth):hover {
+    background: #e9ebee8c;
+}
+
+.ctnvb .cttm {
+    font-size: 15px;
+    font-weight: 300;
+    color: #000;
+    letter-spacing: .4px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.ctnvb .cttm.cth {
+    font-size: .96rem !important;
+    font-weight: 400;
+    letter-spacing: .01rem;
+    border-top: 1px solid #e2e3e7;
+    padding: .3rem 1.4rem 0 1rem;
+}
+
+.ctnvb .cttm.cttmh {
+    font-weight: 400;
+}
+
+.ctp {
+    padding: .2rem 1.4rem;
+}
+
+.ctp.f {
+    overflow-y: auto;
+    max-height: 160px;
+    border-top: 1px solid #ddd;
+}
+
+.checkbox label {
+    display: inline-block;
+    padding-left: 8px;
+    position: relative;
+    font-weight: normal;
+}
+
+.checkbox label::before {
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: 2px solid #a4abc5;
+    content: "";
+    display: inline-block;
+    height: 18px;
+    left: 0;
+    top: 0;
+    margin-left: -18px;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+    width: 18px;
+    outline: none !important;
+}
+
+.checkbox label::after {
+    color: #f1f5fa;
+    display: inline-block;
+    font-size: 11px;
+    height: 18px;
+    left: 0;
+    margin-left: -18px;
+    padding-left: 3px;
+    padding-top: 2px;
+    position: absolute;
+    width: 18px;
+}
+
+.checkbox input[type="checkbox"] {
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1;
+    outline: none !important;
+}
+
+.checkbox input[type="checkbox"]:disabled + label {
+    opacity: 0.65;
+}
+
+.checkbox input[type="checkbox"]:focus + label::before {
+    outline-offset: -2px;
+    outline: none;
+}
+
+.checkbox input[type="checkbox"]:checked + label::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    display: table;
+    width: 5px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-top-width: 0;
+    border-left-width: 0;
+    transform: rotate(45deg);
+}
+
+.checkbox input[type="checkbox"]:disabled + label::before {
+    background-color: #f1f5fa;
+    cursor: not-allowed;
+}
+
+.checkbox.sg input {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+}
+
+.checkbox.sg label {
+    height: 18px;
+    width: 18px;
+}
+
+.checkbox.sg label:before {
+    margin-left: 0;
+}
+
+.checkbox.sg label:after {
+    margin-left: 0;
+}
+
+.checkbox input[type="checkbox"]:checked + label::before {
+    background-color: #f3c74d;
+    border-color: #f3c74d;
+}
+
+.radio label {
+    display: inline-block;
+    padding-left: 8px;
+    position: relative;
+    font-weight: normal;
+}
+
+.radio label::before {
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 2px solid #a4abc5;
+    content: "";
+    display: inline-block;
+    height: 18px;
+    left: 0;
+    top: 0;
+    margin-left: -18px;
+    position: absolute;
+    width: 18px;
+    outline: none !important;
+}
+
+.radio label::after {
+    background-color: #f3c74d;
+    border-radius: 50%;
+    content: " ";
+    display: inline-block;
+    height: 10px;
+    left: 6px;
+    margin-left: -20px;
+    position: absolute;
+    top: 4px;
+    transform: scale(0, 0);
+    width: 10px;
+}
+
+.radio input[type="radio"] {
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1;
+    outline: none !important;
+}
+
+.radio input[type="radio"]:disabled + label {
+    opacity: 0.65;
+}
+
+.radio input[type="radio"]:focus + label::before {
+    outline-offset: -2px;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline: thin dotted;
+}
+
+.radio input[type="radio"]:checked + label::after {
+    transform: scale(1, 1);
+}
+
+.radio input[type="radio"]:disabled + label::before {
+    cursor: not-allowed;
+}
+
+.radio input[type="radio"]:checked + label::before {
+    border-color: #f3c74d;
+}
+
+.radio input[type="radio"]:checked + label::after {
+    background-color: #f3c74d;
+}
+
+
+/* :: 0.1 Sort CSS */
+.product-topbar {
+    position: relative;
+    z-index: 100;
+    padding: .5rem;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .product-topbar .total-products {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .product-topbar .total-products {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .product-topbar .total-products {
+        margin-bottom: 30px;
+    }
+}
+
+.product-topbar .total-products p {
+    margin-bottom: 0;
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    color: #242424;
+}
+
+.product-topbar .total-products .view a {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40px;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    background-color: #131212;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 44px;
+}
+
+.product-topbar .total-products .view a:first-child {
+    background-color: #fbb710;
+}
+
+.product-topbar .product-sorting p {
+    margin-bottom: 0;
+    font-size: 14px;
+    height: 40px;
+    background-color: #f5f7fa;
+    line-height: 40px;
+    color: #959595;
+    padding: 0 3px 0 14px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .product-topbar .product-sorting p {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .product-topbar .product-sorting p {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .product-topbar .product-sorting p {
+        font-size: 12px;
+    }
+}
+
+.product-topbar .product-sorting form select {
+    background-color: #f5f7fa;
+    border: none;
+    height: 40px;
+    min-width: 80px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .product-topbar .product-sorting form select {
+        min-width: 60px;
+    }
+}
+
+.product-topbar .product-sorting form select option {
+    font-size: 12px;
+    font-weight: 400;
+    color: #242424;
+    text-transform: uppercase;
+    background-color: #f5f7fa;
+}
+
+.product-topbar .nice-select {
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    padding-left: 0;
+    line-height: 40px;
+    margin: 0;
+    background-color: #f5f7fa;
+    border-radius: 0;
+    text-align: center !important;
+    min-width: 100px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .product-topbar .nice-select {
+        min-width: 60px;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .product-topbar .nice-select {
+        min-width: 60px;
+        font-size: 12px;
+    }
+}
+
+.product-topbar .nice-select .list {
+    background-color: #f6f6f6;
+    border-radius: 0;
+    border: none;
+}
+
+.product-topbar .nice-select .list .option.selected {
+    color: #fbb710;
+}
+
+
+/* :: 0.2 Product Container CSS */
+.ctpdc {
+    padding: 1rem .8rem;
+}
+
+/* :: 0.3 Product CSS */
+.spdw {
+    position: relative;
+    z-index: 1;
+    height: 95%;
+    min-height: 95%;
+    flex: 0 1 auto;
+    display: flex;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    flex-direction: column;
+    border: 1px solid #e4e5e9;
+}
+
+a.pdlk {
+    flex-grow: 1;
+}
+
+.spdw:hover {
+    box-shadow: 0 0 4px 1px #e4e5e9;
+}
+
+.spdw .pdti {
+    display: block;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: all .3s;
+    height: 200px;
+}
+
+.spdw .pdti:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spdw .pdti img {
+    width: 100%;
+}
+
+.spdw .pdti .hvrpt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 500ms;
+}
+
+.spdw:hover .pdti .hvrpt {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cprn {
+    padding: .4rem;
+    border-top: 1px solid #ddd;
+}
+
+.itmw {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sfbg {
+    color: #ec7006;
+    padding: 2px 4px;
+    border-radius: 2px;
+    background: #e4941b52;
+    position: relative;
+}
+
+.itmprc {
+    font-weight: 500;
+}
+
+.itmrt svg {
+    margin-left: .25rem;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+.itnm {
+    color: #040509;
+    margin-top: .6rem;
+    font-size: 14px;
+}
+
+.tsvb {
+    margin: 8px 0;
+    padding: 1px 4px;
+    border-radius: 2px;
+    background: #86e4b052;
+    display: flex;
+    justify-content: center;
+}
+
+.tsvb.ts {
+    background: #5af94f52;
+}
+
+.ic {
+    margin: 2px;
+    border-radius: 4px;
+    padding: 1px 4px;
+    background-color: #fff;
+    border: 1px solid #F3F6F9;
+}
+
+.tb {
+    display: inline-flex;
+}
+
+.tsic .ic {
+    color: #e69559;
+}
+
+.tsic .ic.grn {
+    color: #25c74a;
+}
+
+.tsbd {
+    margin-left: auto !important;
+}
+
+.tsbd .ic {
+    color: #f7b55e;;
+}
+
+.tsbd .ic.dn {
+    color: #4292e8;
+}
+
+.pdopt {
+    display: flex;
+    position: relative;
+}
+
+.pdopt button {
+    width: 85%;
+}
+
+
+/* :: 0.4 Pagination CSS */
+.pagination {
+    position: relative;
+    z-index: 1;
+}
+
+.pagination .page-item .page-link {
+    color: #555;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    margin-right: 6px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #d2d9e4;
+}
+
+.pagination .page-item .page-link:hover, .pagination .page-item .page-link:focus {
+    color: #b9811a;
+    border-color: #b9811a;
+    background: white;
+}
+
+.pagination .page-item.active .page-link {
+    color: #b9811a;
+    border: none;
+    background-color: #fff !important;
+}
+
+.pagination .page-item .page-link.etc {
+    border: none !important;
+    color: inherit !important;
+}
+
+.pagination .page-item:first-child .page-link {
+    margin-left: 0;
+}
+
+.pagination .page-item:last-child .page-link {
+    margin-right: 0;
+}

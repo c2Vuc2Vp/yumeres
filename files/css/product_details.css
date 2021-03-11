@@ -1,0 +1,481 @@
+/* :: 0.0 General Area CSS */
+.btn.btn-icon {
+    padding: .715rem .736rem;
+    line-height: 1;
+    overflow-clip: 2;
+}
+
+.btn.btn-icon i {
+    font-size: 1.1rem;
+}
+
+.btn-outline {
+    transition: .5s
+}
+.mcwr.test .shadow-section {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+
+/* :: 0.01 General Hack CSS */
+.mr-50,
+.mx-50 {
+    margin-right: 0.5rem !important;
+}
+
+.ml-50,
+.mx-50 {
+    margin-left: 0.5rem !important;
+}
+
+.font-medium-2 {
+    font-size: 1.2rem !important;
+}
+
+.font-medium {
+    font-size: 1rem !important;
+}
+
+.e-product-section .card {
+    border: none;
+}
+
+.mt-25,
+.my-25 {
+    margin-top: 0.25rem !important;
+}
+
+.mr-25,
+.mx-25 {
+    margin-right: 0.25rem !important;
+}
+
+.mb-25,
+.my-25 {
+    margin-bottom: 0.25rem !important;
+}
+
+.ml-25,
+.mx-25 {
+    margin-left: 0.25rem !important;
+}
+
+.px-4 {
+    padding-right: 3.7rem !important;
+    padding-left: 3.7rem !important;
+}
+
+.im-60 {
+    width: 60px !important;
+}
+
+
+
+/* :: 1.0 Product Info CSS */
+.pro_container {
+    padding: 20px 15px;
+}
+
+.cc {
+    position: relative;
+    padding: 5px;
+    border: 1px solid #e9ecef;
+    border-radius: 2px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cc.nwf {
+    padding: 0;
+}
+
+.pdctn .pdvl {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 4px;
+    padding: 0 11px;
+}
+
+.pdvl.pdnw {
+    background-color: #2c9e24;
+}
+
+.pct {
+    display: none;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    opacity: 0;
+    transition: display .5s;
+}
+
+.pct.nw {
+    display: block;
+    opacity: 1;
+}
+
+.pct img {
+    height: 100%;
+    width: 100%;
+}
+
+.pd_thmb {
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.pd_thmb > .pd_ptnv {
+    display: flex;
+    background: #f3f3f3;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+.pd_thmb > .pd_ptnv div {
+    padding: 2.5px;
+    border: 1px solid #e9ecef;
+    margin: 0 1px;
+    display: table;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #FFF;
+    border-radius: 3px;
+    height: auto;
+    width: auto;
+    cursor: pointer;
+}
+
+.pd_thmb .pd_ptnv div img {
+    max-height: 45px;
+    max-width: 45px;
+}
+
+a#pdt_mt {
+    color: #0056b3;
+}
+
+a#pdt_mt:hover {
+    text-decoration: underline;
+}
+
+.btn-primary-outline {
+    color: #d2910c;
+    background-color: transparent;
+    border-color: #d2910c
+}
+
+.btn-primary-outline:hover {
+    color: #fff;
+    background-color: #d2910c;
+    border-color: #d2910c
+}
+
+.btn-primary, .btn-primary:hover {
+    background-color: #d2910c;
+    border-color: #d2910c;
+    color: #fff;
+}
+
+.pd-size-choose {
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.pd-size-choose .sc-item {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pd-size-choose .sc-item:last-child {
+    margin-right: 0;
+}
+
+.pd-size-choose .sc-item input {
+    position: absolute;
+    visibility: hidden;
+}
+
+.pd-size-choose .sc-item label {
+    font-size: 16px;
+    color: #252525;
+    font-weight: 700;
+    height: 38px;
+    width: 45px;
+    border: 1px solid #ebebeb;
+    text-align: center;
+    line-height: 38px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pd-size-choose .sc-item label.active {
+    background: #d2910c;
+    color: #ffffff;
+}
+
+.product-color-options .color-option {
+    border: 2px solid transparent;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    padding: .3rem;
+}
+
+.product-color-options .color-option .filloption {
+    height: 21px;
+    width: 21px;
+    border-radius: 50%;
+}
+
+.product-color-options .selected .b-primary {
+    border-color: #fab147;
+}
+
+.product-color-options .selected .b-success {
+    border-color: #28c76f;
+}
+
+.product-color-options .selected .b-danger {
+    border-color: #ea5455;
+}
+
+.product-color-options .selected .b-warning {
+    border-color: #ff9f43;
+}
+
+.product-color-options .selected .b-black {
+    border-color: #22292f;
+}
+
+
+
+/* :: 2.0 Description CSS */
+.section-shape {
+    position: absolute;
+    z-index: 0;
+    opacity: .4;
+    max-width: 100% !important;
+}
+
+.side-left {
+    left: -20px;
+    top: -125px;
+}
+
+.side-right {
+    right: -28px;
+    bottom: -140px;
+}
+
+.shape-reveal1 {
+    right: 28% !important;
+    bottom: 28% !important;
+    transform: rotate(15deg);
+    opacity: .8;
+}
+
+.cs {
+    z-index: 2;
+}
+
+.tabs {
+    position: relative;
+}
+
+ul.tab-nav {
+    margin: 0;
+    border-bottom: 1px solid #DDD;
+    list-style: none;
+}
+
+ul.tab-nav li {
+    float: left;
+    border: 1px solid #DDD;
+    border-radius: 4px 4px 0 0px;
+    border-bottom: 0;
+    height: 44px;
+    text-align: center;
+    cursor: pointer;
+}
+
+ul.tab-nav li:first-child {
+    margin-left: .3rem;
+}
+
+ul.tab-nav li span {
+    display: block;
+    padding: 0 15px;
+    color: #444;
+    height: 44px;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+ul.tab-nav li.active > span {
+    position: relative;
+    top: 1px;
+    background: #fff;
+}
+
+ul.tab-nav li:not(.active) {
+    border-color: transparent;
+}
+
+.tab-container {
+    position: relative;
+    padding: 10px 0 0;
+    overflow: hidden;
+}
+
+.tab-content {
+    padding: 18px 18px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-content p:last-child {
+    margin: 0;
+}
+
+.checkout_details_area form .form-control {
+    height: 38px;
+    border-radius: 4px;
+    color: #6b6b6b;
+    font-size: 14px;
+}
+
+.checkout_details_area form textarea.form-control {
+    height: 210px;
+    resize: none
+}
+
+.checkout_details_area form .custom-control label {
+    font-size: 14px;
+    color: #5d5d5d;
+}
+
+.checkout_details_area form .nice-select {
+    border-radius: 4px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #ced4da;
+    color: #6b6b6b;
+    font-size: 14px;
+}
+
+.checkout_details_area form .nice-select .list {
+    width: 100%;
+}
+
+.cart-summary {
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    border-radius: 5px;
+    padding: 30px 20px;
+}
+
+.cart-summary h5 {
+    font-size: 18px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.cart-summary .summary-table {
+    margin-top: 30px;
+}
+
+.cart-summary .summary-table li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+.cart-summary .summary-table li span {
+    color: #6b6b6b;
+    font-size: 14px;
+}
+
+
+
+/* :: 3.0 Info Area CSS */
+.pfb {
+    padding: 10px 5px;
+    border: 2px solid rgba(104, 104, 104, 0.49);
+    border-radius: 5px;
+    height: 100%;
+}
+
+.pfb h5 {
+    font-size: 16px;
+}
+
+.pfb i {
+    font-size: 2.5rem !important;
+}
+
+.pfb p {
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* :: 4.0 Slider Area CSS */
+.swiper_wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper-container .swiper-slide {
+    border: 1px solid #e4e5e9;
+    border-radius: 7px !important;
+    text-align: center;
+    font-weight: 400;
+    padding: .7rem;
+}
+
+.swiper-container .swiper-slide:hover {
+    box-shadow: 0 0 4px 1px #e4e5e9;
+}
+
+.swiper-button-next:before, .swiper-button-prev:before {
+    background: #fff;
+    height: 200%;
+    font-size: 2rem;
+    cursor: pointer;
+    top: -25%;
+    left: 0;
+    margin-top: 0;
+    border: 0;
+}
+
+.swiper-button-next {
+    left: auto;
+    right: 0;
+}
+
+.swiper_wrapper .swiper-container {
+    width: 100%;
+    height: 100%;
+}
