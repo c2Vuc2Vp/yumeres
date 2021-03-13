@@ -1,6 +1,6 @@
 <?php
 
-  $assets = 'assets/';
+  $assets = '../assets/';
 
   $vendor = '../vendor/';
 
@@ -34,11 +34,11 @@
 
     <link rel="stylesheet" href="<?=$vendor?>sweetalert/sweetalert2.css">
 
-    <link rel="icon" type="image/png" href="../img/core-img/favicon.ico"/>
+    <link rel="icon" type="image/png" href="<?=$assets?>img/core-img/favicon.ico"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?=$vendor?>bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?=$assets?>fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?=$vendor?>animate/animate.css">
     <!--===============================================================================================-->
@@ -57,7 +57,7 @@
       <div class="container-login100">
         <div class="wrap-login100">
           <div class="login100-pic js-tilt" data-tilt>
-            <img class="w3-circle" src="../img/elements/logo/logo_ob.jpg" alt="Y">
+            <img class="w3-circle" src="<?=$assets?>img/elements/logo/logo_ob.jpg" alt="Y">
           </div>
 
           <form class="login100-form validate-form" id="formmasuk" method="post" action="" autocomplete="off">
@@ -120,12 +120,12 @@
     <!--===============================================================================================-->
       <script src="<?=$vendor?>jQuery-3.3.1/jquery-3.3.1.js"></script>
     <!--===============================================================================================-->
-      <script src="../vendor/bootstrap/js/popper.js"></script>
-      <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+      <script src="<?=$vendor?>bootstrap/js/popper.js"></script>
+      <script src="<?=$vendor?>bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-      <script src="../vendor/select2/select2.min.js"></script>
+      <script src="<?=$vendor?>select2/select2.min.js"></script>
     <!--===============================================================================================-->
-      <script src="../vendor/tilt/tilt.jquery.min.js"></script>
+      <script src="<?=$vendor?>tilt/tilt.jquery.min.js"></script>
       <script >
         $('.js-tilt').tilt({
           scale: 1.1

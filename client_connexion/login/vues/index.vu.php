@@ -31,7 +31,7 @@
 
     <!-- Fontfaces CSS-->
     <!--===============================================================================================-->
-    <link rel="icon" href="../../img/core-img/favicon.ico">
+    <link rel="icon" href="<?=$assets?>img/core-img/favicon.ico">
     <!--===============================================================================================-->
     <link rel="stylesheet" href="<?=$vendor?>sweetalert/sweetalert2.css">
     <!--===============================================================================================-->
@@ -94,15 +94,15 @@
   </head>
 
   <body class="animsition animated slow fadeIn delay-5s">
-
+    
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img class="rounded-circle" src="../../img/elements/logo/logo_ob.jpg" alt="<?=$username?>" />
+                        <a class="logo" href="">
+                            <img class="rounded-circle" src="<?=$assets?>img/elements/logo/logo_ob.jpg" alt="<?=$username?>" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -217,7 +217,7 @@
         <aside class="animated delay-5s rubberBand slow menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="../../img/core-img/logo.png" alt="Yumeres">
+                    <img src="<?=$assets?>img/core-img/logo.png" alt="Yumeres">
                 </a>
             </div>
             <?php
@@ -239,7 +239,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img class="rounded-circle" src="../../img/elements/logo/logo_ob.jpg" alt="<?=$username?>" />
+                                            <img class="rounded-circle" src="<?=$assets?>img/elements/logo/logo_ob.jpg" alt="<?=$username?>" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"><?=$username?></a>
@@ -248,7 +248,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img class="rounded-circle" src="../../img/elements/logo/logo_ob.jpg" alt="<?=$username?>" />
+                                                        <img class="rounded-circle" src="<?=$assets?>img/elements/logo/logo_ob.jpg" alt="<?=$username?>" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
