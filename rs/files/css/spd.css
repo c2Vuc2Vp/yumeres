@@ -71,7 +71,7 @@
     width: 60px !important;
 }
 
-
+@media print{body{display:none!important}}
 
 /* :: 1.0 Product Info CSS */
 .pro_container {

@@ -412,11 +412,19 @@
                     spaceBetween: 20,
                 },
                 768: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 30,
                 },
                 572: {
                     slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                420: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                0: {
+                    slidesPerView: 1,
                     spaceBetween: 20,
                 }
             }
