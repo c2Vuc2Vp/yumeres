@@ -1,0 +1,85 @@
+#wishlist {
+    padding: 20px;
+}
+
+.spdw {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: 1px solid #e4e5e9;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+.spdw:hover {
+    border: none;
+    box-shadow: 0 0 4px 1px #e4e5e9;
+}
+
+.card-body {
+    padding: .4rem 1rem;
+}
+
+.itmw {
+    display: flex;
+    justify-content: space-between;
+}
+
+.itmprc {
+    font-weight: 400;
+    top: 5px;
+    position: relative;
+}
+
+.itmrt svg {
+    margin-left: .25rem;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+.itnm {
+    color: #2c2c2c;
+    margin-top: .4rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.itnm a {
+    color: #626262;
+}
+
+.itnm a:hover {
+    color: #323439;
+}
+
+.itopt {
+    display: flex;
+}
+
+.itopt .act {
+    flex: 0 0 auto;
+    flex-basis: 0;
+    flex-grow: 1;
+    width: auto;
+    max-width: 100%;
+}
+
+.itopt .act span {
+    display: flex;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.act span svg {
+    margin: auto;
+}
+
+.add_wsh {
+    background: #ffb257;
+}
+
+.rmv_wsh {
+    background: #ca2b2b;
+}
