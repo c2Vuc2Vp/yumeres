@@ -30,7 +30,7 @@
 
       $id_cat = $cat['id'];
 
-      $marques = $pdo->prepare("SELECT marque FROM marques WHERE id_sous_categorie = ?");
+      $marques = $pdo->prepare("SELECT marque FROM marques WHERE id_sous_categorie = ? ORDER BY marque ASC");
 
       $marques->execute([$id_cat]);
 
