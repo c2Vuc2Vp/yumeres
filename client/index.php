@@ -1,5 +1,13 @@
 <?php
 
+  $assets = '../assets/';
+
+  $vendor = '../vendor/';
+
+  $js = 'login/js/';
+
+  $css = 'login/css/';
+
   /////////////////////////
   // demarrer la session //
   /////////////////////////
@@ -13,6 +21,10 @@
   require_once "../app/inc/function.php";
 
   require_once "../app/inc/connect.php";
+
+  ///////////////////////////
+  // connexion par cookies //
+  ///////////////////////////
 
   if (!isset($_SESSION['id']) && isset($_COOKIE['remember']) && !empty($_COOKIE['remember'])) {
 

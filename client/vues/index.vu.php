@@ -1,15 +1,3 @@
-<?php
-
-  $assets = '../assets/';
-
-  $vendor = '../vendor/';
-
-  $js = 'login/js/';
-
-  $css = 'login/css/';
-
-?>
-
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -30,6 +18,8 @@
 
     <link rel="stylesheet" type="text/css" href="<?=$css?>w3.css"/>
 
+    <link rel="stylesheet" href="<?=$assets?>css/style.css" type="text/css">
+
     <link rel="stylesheet" href="<?=$css?>main.css" type="text/css">
 
     <link rel="stylesheet" href="<?=$vendor?>sweetalert/sweetalert2.css">
@@ -44,7 +34,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?=$vendor?>css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="<?=$vendor?>select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="<?=$vendor?>sweetalert/sweetalert2.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?=$css?>util.css">
     <!--===============================================================================================-->
@@ -101,7 +91,7 @@
               <span class="txt1">
                 Oublié
               </span>
-              <a class="txt2" href="#">
+              <a class="txt2" id="forget" href="#">
                 Username / Password?
               </a>
             </div>
@@ -123,13 +113,72 @@
       <script src="<?=$vendor?>bootstrap/js/popper.js"></script>
       <script src="<?=$vendor?>bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-      <script src="<?=$vendor?>select2/select2.min.js"></script>
+      <script src="<?=$vendor?>sweetalert/sweetalert2.js"></script>
     <!--===============================================================================================-->
       <script src="<?=$vendor?>tilt/tilt.jquery.min.js"></script>
       <script >
         $('.js-tilt').tilt({
           scale: 1.1
         })
+        $('#forget').click(function () {
+
+          Swal.mixin({
+
+            input: 'text',
+            confirmButtonText: 'Envoi &rarr;',
+            showCancelButton: true,
+            /*progressSteps: ['1', '2', '3'],*/
+            backdrop: `
+              rgba(139, 94, 1, 0.51)
+            `
+          }).queue([ 
+            {
+              title: 'Mot de passe Oublié!',
+              text: 'Entrer votre E-mail'
+            }
+          ]).then((result) =>{
+
+            if (result.value) {
+
+              var email = result.value;
+
+              var url = 'forgetPass.php';
+
+              if (email == '') {
+
+                Swal.fire(
+                  
+                  'Erreur!',
+                  
+                  'Veillez spécifier votre e-mail!',
+                  
+                  'error'
+                
+                );
+
+                return false;
+
+              }
+
+              $.ajax({
+
+                type: 'POST',
+
+                url: url,
+
+                data : { email : email },
+
+                success : function(response){
+
+                }
+                
+              });
+
+            }
+
+          });
+
+        });
       </script>
     <!--===============================================================================================-->
       <script src="<?=$js?>main_2.js"></script>

@@ -1,5 +1,13 @@
 <?php
 
+  $assets = '../assets/';
+
+  $vendor = '../vendor/';
+
+  $js = 'login/js/';
+
+  $css = 'login/css/';
+
   /////////////////////////
   // demarrer la session //
   /////////////////////////

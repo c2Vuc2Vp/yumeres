@@ -1,14 +1,3 @@
-<?php
-
-  $assets = '../assets/';
-
-  $vendor = '../vendor/';
-
-  $js = 'login/js/';
-
-  $css = 'login/css/';
-
-?>
 <!DOCTYPE html>
 
 <html lang="fr">

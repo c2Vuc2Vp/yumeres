@@ -13,7 +13,7 @@
 
     Pour valider votre compte, veuillez cliquer sur le lien :
 
-    <a href="<?= WEBURL.'/activation.php?m='.$mail.'&amp;token='.$token?>">ici</a>
+    <a href="<?= WEBURL.'/client/activation.php?m='.$mail.'&amp;token='.$token?>">ici</a>
 
   </body>
 
