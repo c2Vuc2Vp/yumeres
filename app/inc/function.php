@@ -4,7 +4,7 @@
 
   define('WEBNAME', 'Yumeres');
 
-  define('AUTHOR', 'Okami developer');
+  define('AUTHOR', 'OkamiDigit developers');
 
   define('WEBDESCR', 'Yumeres, N\'1 des sites de ventes en lignes');
 

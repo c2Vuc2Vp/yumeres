@@ -51,7 +51,7 @@
             <img class="w3-circle" src="<?=$assets?>img/elements/logo/logo_ob.jpg" alt="Y">
           </div>
 
-          <form class="login100-form validate-form" id="formmasuk" method="post" action="">
+          <form class="login100-form validate-form" id="formmasuk" method="post" action="" autocomplete="off">
             <span class="login100-form-title">
               Espace membres enregistrement
             </span>

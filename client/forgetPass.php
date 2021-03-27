@@ -31,7 +31,7 @@
       exit;
   }
  
-  if(!empty($_POST['forget'])){
+  if(!empty($_POST['email'])){
 
     $error = [];
 
@@ -39,58 +39,71 @@
   
     $valid = true;
 
-    if (isset($_POST['email'])){
+    $email= $email[0];
+
+    $req = $pdo->prepare("SELECT * FROM clients WHERE mail = '$email'");
+
+    $req->execute(array());
+
+    $userinfo = $req->fetch();
+
+    $userid = $userinfo['id'];
+
+    $usermail =  $userinfo['mail'];
+
+    $usercookie = $userinfo['remember_token'];
+
+    $useractive = $userinfo['active'];
+
+    $username = $userinfo['username'];
+
+    if (isset($email)){
        
       // Si le mail est vide alors on ne traite pas
-      if(empty($mail)){
+      if(empty($email)){
           $valid = false;
           $error = "Il faut mettre une addresse e-mail";
       }
- ici ici ici ici ici
+ 
       if($valid){
-          $verification_mail = $DB->query("SELECT nom, prenom, mail, n_mdp 
-              FROM utilisateur WHERE mail = ?",
-              array($mail));
-          $verification_mail = $verification_mail->fetch();
 
-          if(isset($verification_mail['mail'])){
-              if($verification_mail['n_mdp'] == 0){
-                  // On génère un mot de passe à l'aide de la fonction RAND de PHP
-                  $new_pass = rand();
+        if(is_used('clients', 'mail', $email)){
 
-                  // Le mieux serait de générer un nombre aléatoire entre 7 et 10 caractères (Lettres et chiffres)
-                  $new_pass_crypt = crypt($new_pass, "$6$rounds=5000$macleapersonnaliseretagardersecret$");
-                  // $new_pass_crypt = crypt($new_pass, "VOTRE CLÉ UNIQUE DE CRYPTAGE DU MOT DE PASSE");
+          // On génère un mot de passe à l'aide de la fonction RAND de PHP
+          $new_pass = rand();
 
-                  $objet = 'Nouveau mot de passe';
-                  $to = $verification_mail['mail'];
+          // Le mieux serait de générer un nombre aléatoire entre 7 et 10 caractères (Lettres et chiffres)
+          $new_pass_crypt = password_hash($password, PASSWORD_BCRYPT);
+          // $new_pass_crypt = crypt($new_pass, "VOTRE CLÉ UNIQUE DE CRYPTAGE DU MOT DE PASSE");
 
-                  //===== Création du header du mail.
-                  $header = "From: NOM_DE_LA_PERSONNE <no-reply@test.com> \n";
-                  $header .= "Reply-To: ".$to."\n";
-                  $header .= "MIME-version: 1.0\n";
-                  $header .= "Content-type: text/html; charset=utf-8\n";
-                  $header .= "Content-Transfer-Encoding: 8bit";
+          $to = $email;
 
-                  //===== Contenu de votre message
-                  ob_start();
+          $subject = WEBNAME." - ACTIVATION DE COMPTE";
 
-                  require('../template/email/forgetPass.tmp.php');
-                  
-                  $contenu = ob_get_clean(); "<html>".
-                      "<body>".
-                      "<p style='text-align: center; font-size: 18px'><b>Bonjour Mr, Mme".$verification_mail['nom']."</b>,</p><br/>".
-                      "<p style='text-align: justify'><i><b>Nouveau mot de passe : </b></i>".$new_pass."</p><br/>".
-                      "</body>".
-                      "</html>";
-                  //===== Envoi du mail
-                  mail($to, $objet, $contenu, $header);
-                  $DB->insert("UPDATE utilisateur SET mdp = ?, n_mdp = 1 WHERE mail = ?", 
-                      array($new_pass_crypt, $verification_mail['mail']));
-              }   
-          }       
-          header('Location: connexion.php');
+          //===== Création du header du mail.
+          $header = "From: Yumeres\n";
+          $header .= "Reply-To: ".$to."\n";
+          $header .= "MIME-version: 1.0\n";
+          $header .= "Content-type: text/html; charset=utf-8\n";
+          $header .= "Content-Transfer-Encoding: 8bit";
+          echo $header;
+          //===== Contenu de votre message
+          ob_start();
+
+          require('../template/email/forgetPass.tmp.php');
+          
+          $contenu = ob_get_clean(); 
+          //===== Envoi du mail
+          mail($to, $subject, $contenu, $header);
+          $DB->insert("UPDATE clients SET password = ? WHERE mail = ?", 
+              array($new_pass_crypt, $email));      
+          
+          redirection('index.php');
+         
           exit;
+
+        }
+          
       }
 
     }

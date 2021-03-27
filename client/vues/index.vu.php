@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="fr">
+<html lang="fr" class="scroll">
 
   <head>
 
@@ -17,8 +17,6 @@
     <meta name="author" content="<?=AUTHOR?>">
 
     <link rel="stylesheet" type="text/css" href="<?=$css?>w3.css"/>
-
-    <link rel="stylesheet" href="<?=$assets?>css/style.css" type="text/css">
 
     <link rel="stylesheet" href="<?=$css?>main.css" type="text/css">
 
@@ -38,10 +36,11 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?=$css?>util.css">
     <!--===============================================================================================-->
+    <link rel="stylesheet" href="<?=$assets?>css/style.css" type="text/css">
 
   </head>
 
-  <body>
+  <body >
 
     <div class="limiter">
       <div class="container-login100">
@@ -171,7 +170,7 @@
                 success : function(response){
 
                 }
-                
+
               });
 
             }

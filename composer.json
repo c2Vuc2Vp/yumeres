@@ -1,0 +1,17 @@
+{
+    "name": "onepro/yumeres",
+    "description": "Site de vente et revente en ligne!",
+    "license": "OkamiDigit",
+    "authors": [
+        {
+            "name": "c2Vuc2Vp",
+            "email": "73338752+c2Vuc2Vp@users.noreply.github.com"
+        }
+    ],
+    "autoload":{
+			"psr-4":{
+				"App\\": "app/class/"
+			}
+		},
+    "require": {}
+}

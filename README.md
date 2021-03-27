@@ -18,7 +18,8 @@
 - page de connexion clients *V
 - page d'enrégistrement clients *V
 - couche de la page du compte clients *V
-- container clients : tableau de bords avec les states *X
+- container clients : tableau de bords *V
 - container clients : lister les articles postés dans un tableau *V
-- container clients : insertion d'artivcle *---
+- container clients : insertion d'artivcle *V
 - container clients : paramètre *X
+- configurer l'envoie de mail *.....

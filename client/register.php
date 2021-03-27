@@ -138,14 +138,14 @@
 
         $contenus = ob_get_clean();
 
-        $headers = 'MIME-Version: 1.0'.'\r\n';
+        $header = "From: koffisalomon4444@gmail.com\n";
+        /*$header .= "Reply-To: ".$to."\n";
+        $header .= "MIME-version: 1.0\n";
+        $header .= "Content-type: text/html; charset=utf-8\n";
+        $header .= "Content-Transfer-Encoding: 8bit";*/
 
-        $headers .= 'Content-type: text/html; charset=iso-8859-1'.'\r\n';
-
-        $envoi = mail($to,$subject,$contenus,$headers);
-
-        if ($envoi == true) {
-
+        if (mail($to,$subject,$contenus,$header)) {
+          echo 'envoyer';
           setcookie("remember", $_POST["mail"]."==".sha1($_POST["mail"]."anotherlevelhackey"), time() + 60*60*24*7, '/');
 
           $cookie = $_COOKIE['remember'];

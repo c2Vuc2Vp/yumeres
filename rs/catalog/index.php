@@ -1,10 +1,28 @@
 <?php
 
-  require_once "inc/functions.php";
+  $assets = '../assets/';
 
-  require_once "inc/db.php";
+  $vendor = '../vendor/';
 
-  ?>
+  $js = 'login/js/';
+
+  $css = 'login/css/';
+
+  /////////////////////////
+  // demarrer la session //
+  /////////////////////////
+
+  session_start();
+
+  //////////////////////////////////////////////////////////////
+  // inclure le fichier de fonction et de connection à la bdd //
+  //////////////////////////////////////////////////////////////
+
+  require_once "../../app/inc/function.php";
+
+  require_once "../../app/inc/connect.php";
+  
+?>
 
 <!DOCTYPE html>
 <html lang="en">

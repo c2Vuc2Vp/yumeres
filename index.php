@@ -1,22 +1,21 @@
 <?php
 	
-	$uri = $_SERVER['REQUEST_URI'];
+	/*$uri = $_SERVER['REQUEST_URI'];*/
 
-	if ($uri === '/dev/yumeres/client') {
+	require_once "app/inc/function.php";
 
-		require 'client_connexion/index.php';
+	defined('ROOT') || define('ROOT', realpath(dirname(__DIR__.'/yumeres')));
 
-	}elseif ($uri === '/dev/yumeres/'){
-		
-		require 'index.html';
+	require_once ROOT . '/vendor/autoload.php';
 
-	}elseif ($uri === '/dev/yumeres/acceuil'){
-		
-		require 'index.html';
+	/*use \AltoRouter;*/
 
-		/*echo "require '/dev/yumeres/index.html';";*/
-	}elseif ($uri === 'dev/yumeres/client_connexion/login/vues/account/'){
+	/*use App;*/
 
-		require 'client_connexion/login/vues/account/';
-	
-	}
+	$router = new App\Router($_GET['url']);
+
+	$router->get('/',function(){
+		echo 'acceuil';
+	});
+
+?>
