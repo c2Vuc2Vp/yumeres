@@ -89,8 +89,8 @@
         $marque = xss($marque);
         $content = xss($content);
         $prix = xss($prix);
-        $article = $pdo->prepare("INSERT INTO articles SET nom = ?, username = ?, stock = ?, cat = ?, s_cat = ?, s_cat_i = ?, marque = ?, descr = ?, prix = ?");
-        $article->execute([$nom, $username, $stock, $categorie, $sous_categorie, $sous_categorie_infor, $marque, $content, $prix]);
+        $article = $pdo->prepare("INSERT INTO articles SET nom = ?, username = ?, stock = ?, cat = ?, s_cat = ?, s_cat_i = ?, marque = ?, descr = ?, prix = ?, img = ?");
+        $article->execute([$nom, $username, $stock, $categorie, $sous_categorie, $sous_categorie_infor, $marque, $content, $prix, $img]);
 
         $data_serialize = serialize($myimages);
         print("SERIALIZED DATA:\n");

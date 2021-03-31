@@ -1,7 +1,20 @@
 
+<?php
+
+  $assets = '../../assets/';
+
+  $vendor = '../../vendor/';
+
+  $js = '../files/js/';
+
+  $img = '../files/img/';
+
+  $css = '../files/css/';
+
+?>
 <div class="mobile-nav">
     <div class="ynb">
-        <a href="../../rs/"><img src="files/img/logo.png" alt=""></a>
+        <a href="rs/index.php"><img src="<?=$img?>logo.png" alt=""></a>
     </div>
     <div class="yntg">
         <span></span><span></span><span></span>
@@ -13,19 +26,19 @@
         <i class="fa fa-close" aria-hidden="true"></i>
     </div>
     <div class="logo">
-        <a href="../rs/index.php"><img src="files/img/logo.png" alt=""></a>
+        <a href="../acceuil/index.php"><img src="<?=$img?>logo.png" alt=""></a>
     </div>
     <nav class="nvb">
         <ul>
-            <li class="active"><a href="index.html">Accueil</a></li>
-            <li><a href="catalog/index.html">Catégorie</a></li>
+            <li class="active"><a href="../acceuil/index.php">Accueil</a></li>
+            <li><a href="../catalog/index.php">Catégorie</a></li>
             <li><a href="mailto:support@yumeres.com">Contact</a></li>
         </ul>
     </nav>
 
     <div class="mb-70"></div>
     <div class="cart-fav-search mb-50">
-        <a href="wishlist.html" class="cart-nav">
+        <a href="../wishlist/index.php" class="cart-nav">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 24 24" stroke="currentColor"
                  fill="none" stroke-width="2">
                 <circle cx="9" cy="21" r="1"></circle>
@@ -41,6 +54,7 @@
             </svg>
             Rechercher</a>
     </div>
+
     <div class="social-info d-flex justify-content-between">
         <a href="https://www.facebook.com/yumeres">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -75,3 +89,39 @@
         </svg>
     </div>
 </header>
+
+<script>
+    
+  function search(){
+
+    var search = $('input#search').val();
+
+    var url = '../../app/inc/rs_acceuil_search.php'
+
+    if(search.length > 0){
+
+      $.ajax({
+
+        type: 'POST',
+
+        url : url,
+
+        data : {
+
+          article : search
+        },
+
+        success: function(data){
+
+          $('#result').html(" "+data).show();
+        }
+
+      });
+
+    }else{
+      $('#result').empty();
+    }
+
+  }
+  
+</script>

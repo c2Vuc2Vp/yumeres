@@ -1,12 +1,14 @@
 <?php
 
-  $assets = '../assets/';
+  $assets = '../../assets/';
 
-  $vendor = '../vendor/';
+  $vendor = '../../vendor/';
 
-  $js = 'files/js/';
+  $js = '../files/js/';
 
-  $css = 'files/css/';
+  $img = '../files/img/';
+
+  $css = '../files/css/';
 
   /////////////////////////
   // demarrer la session //
@@ -18,9 +20,9 @@
   // inclure le fichier de fonction et de connection à la bdd //
   //////////////////////////////////////////////////////////////
 
-  require_once "../app/inc/function.php";
+  require_once "../../app/inc/function.php";
 
-  require_once "../app/inc/connect.php";
+  require_once "../../app/inc/connect.php";
   
 ?>
 <!DOCTYPE html>
@@ -37,33 +39,36 @@
 
     <title>Yumeres - E-commerce | Accueil</title>
 
-    <link rel="icon" href="files/img/favicon.ico">
-    <link rel="stylesheet" href="files/css/bootstrap.css">
-    <link rel="stylesheet" href="files/css/core-style.css">
+    <link rel="icon" href="<?=$img?>favicon.ico">
+    <link rel="stylesheet" href="<?=$css?>bootstrap.css">
+    <link rel="stylesheet" href="<?=$css?>core-style.css">
+    <link rel="stylesheet" href="<?=$vendor?>mdb/mdb.min.css">
 
 </head>
 
 <body>
 
 <div class="search-wrapper">
-    <div class="container vw mnc">
-        <form action="#" class="header-search-form" method="get">
-            <input class="search form-control" name="q"
-                   placeholder="Chercher un produit, une marque ou une catégorie..." type="text" value="">
-            <button class="dn dskp">Rechercher</button>
-            <button class="dn mb primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 52.966 52.966"
-                     stroke-width="2" stroke="currentColor" fill="none">
-                    <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19S32.459,40,21.983,40z"/>
-                </svg>
-            </button>
-        </form>
+
+  <div class="container vw mnc">
+
+    <div class="header-search-form">
+        
+      <input id="search" onkeyup="search()" class="search form-control" placeholder="Chercher un produit" type="text">
+        
     </div>
+
+    <div id="result">
+      
+        </div>
+
+  </div>
+
 </div>
 
 <div class="mcwr d-flex">
 
-    <?php include '../app/inc/sidebar.php'; ?>
+  <?php include '../../app/inc/rs_sidebar.php'; ?>
 
     <div class="prcar clearfix">
         <div class="yrc clearfix">
@@ -77,8 +82,8 @@
               ?>
 
               <div class="spcat clearfix">
-                  <a href="catalog/<?=$cat['list_cat']?>">
-                      <img src="files/img/idx/<?=$cat['img']?>" alt="<?=$cat['list_cat']?>">
+                  <a href="catalog/index.php?cat=<?=$cat['list_cat']?>">
+                      <img src="<?=$img?>idx/<?=$cat['img']?>" alt="<?=$cat['list_cat']?>">
                       <div class="hover-content">
                           <div class="line"></div>
                           <h4><?=$cat['list_cat']?></h4>
@@ -123,11 +128,12 @@
     </div>
 </section>
 
-<script src="files/js/jquery.js"></script>
-<script src="files/js/bootstrap.js"></script>
-<script src="files/js/plugins.js"></script><script src="files/js/plugins.js"></script>
-<script src="files/js/s.js"></script>
-<script src="files/js/function.js"></script>
+<script src="<?=$js?>jquery.js"></script>
+<script src="<?=$js?>bootstrap.js"></script>
+<script src="<?=$js?>plugins.js"></script>
+<script src="<?=$js?>s.js"></script>
+<script src="<?=$js?>function.js"></script>
+<script src="<?=$vendor?>mdb/mdb.min.js"></script>
 
 </body>
 

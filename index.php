@@ -12,10 +12,15 @@
 
 	/*use App;*/
 
-	$router = new App\Router($_GET['url']);
+	$router = new App\Router\Router($_GET['url']);
 
 	$router->get('/',function(){
-		echo 'acceuil';
+		require_once('rs/index.php');
 	});
+ 
+	$router->get('/posts/:id', function($id){ echo "Voila l'article $id"; });  
+	$router->get('/posts', function(){ echo "Voila tous les articles";}); 
+
+	$router->run();
 
 ?>
