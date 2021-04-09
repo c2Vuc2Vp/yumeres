@@ -30,7 +30,7 @@
 
     if(isset($article)){
 
-      $re = $pdo->query("SELECT * FROM articles WHERE nom LIKE '%$article%' ORDER BY id DESC");
+      $re = $pdo->query("SELECT * FROM articles WHERE nom LIKE '%$article%' ORDER BY id DESC LIMIT ");
 
       ?>
 

@@ -14,7 +14,7 @@
 ?>
 <div class="mobile-nav">
     <div class="ynb">
-        <a href="rs/index.php"><img src="<?=$img?>logo.png" alt=""></a>
+        <a href="rs/acceuil/index.php"><img src="<?=$img?>logo.png" alt=""></a>
     </div>
     <div class="yntg">
         <span></span><span></span><span></span>
@@ -96,7 +96,7 @@
 
     var search = $('input#search').val();
 
-    var url = '../../app/inc/rs_acceuil_search.php'
+    var url = '../../app/inc/rs_search.php'
 
     if(search.length > 0){
 
@@ -114,6 +114,7 @@
         success: function(data){
 
           $('#result').html(" "+data).show();
+
         }
 
       });

@@ -248,7 +248,7 @@ require_once"../../add.php";
       var dropzone = $("#dropzone").dropzone({
         url: 'add_add.php',
         maxFilesize: 8,
-        maxFiles: 6,
+        maxFiles: 3,
         addRemoveLinks: true,
         uploadMultiple: true,
         parallelUploads: 100,
